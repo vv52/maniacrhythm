@@ -9,6 +9,9 @@ This project will utilize a four note button layout (equivalent to 4B style in D
 
 There will be selectable songs and difficulty levels as well as unreleased music made specifically for this game (if time allows).
 
+## Gameplay Mockup / Visual Design
+!["Maniac Rhythm Gameplay Mockup"](mockup.png)
+
 ## Goals
 1. Four note lanes with fair judgement
 2. Clean and appealing visuals
