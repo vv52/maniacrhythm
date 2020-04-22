@@ -1,5 +1,7 @@
 # ManiacRhythm
 
+!["Maniac Rhythm Title / Splash Screen"](maniacsplash.jpg)
+
 ## What is it?
 Maniac Rhythm is a bemani-style rhythm game made in Unity utilizing techniques discussed by Yu Chao and Graham Tattersall on Gamasutra.
 
