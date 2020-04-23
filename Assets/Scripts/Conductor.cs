@@ -26,20 +26,21 @@ public class Conductor : MonoBehaviour
 	//The offset to the first beat of the song in seconds
 	public float firstBeatOffset;
 
+	//Number of beats shown in advance before reaching the judgement line
+	public float beatsShownInAdvance;
+
 	//keep all the position-in-beats of notes in the song
 	Notes[] notes = new Notes[4];
 
 	//the index of the next note to be spawned
 	int nextIndex = 0;
 
+	public float currentNotePos;
+
 	public GameObject Note0;
-	Vector3 note0StartPos = new Vector3(-821.9f, 554.0f, 0.0f);
 	public GameObject Note1;
-	Vector3 note1StartPos = new Vector3(-720.2f, 554.0f, 0.0f);
 	public GameObject Note2;
-	Vector3 note2StartPos = new Vector3(-624.2f, 554.0f, 0.0f);
 	public GameObject Note3;
-	Vector3 note3StartPos = new Vector3(-523.8f, 554.0f, 0.0f);
 
 	public GameObject Canvas;
 
@@ -58,8 +59,14 @@ public class Conductor : MonoBehaviour
 	    musicSource.Play();
 
 	    //TEST
-	    bool[] testNote = { true, false, false, false };
-	    notes = new Notes[] { new Notes(0.0f, testNote), new Notes(2.0f, testNote) };
+	    bool[] testNote0 = { true, false, false, false };
+	    bool[] testNote1 = { false, true, false, false };
+	    bool[] testNote2 = { false, false, true, false };
+	    bool[] testNote3 = { false, false, false, true };
+	    bool[] testDoubleNote = { true, false, true, false };
+	    notes = new Notes[] { new Notes(0.0f, testNote0), new Notes(2.0f, testNote1),
+	    	new Notes(4.0f, testNote2), new Notes(6.0f, testNote3) };
+	    beatsShownInAdvance = 8.0f;
 	}
 
 	void Update()
@@ -70,15 +77,25 @@ public class Conductor : MonoBehaviour
 	    //determine how many beats since the song started
 	    songPositionInBeats = songPosition / secPerBeat;
 
-	    if (nextIndex < notes.Length && notes[nextIndex].pos < songPositionInBeats)
+	    if (nextIndex < notes.Length && notes[nextIndex].pos < songPositionInBeats + beatsShownInAdvance)
 		{
+			currentNotePos = notes[nextIndex].pos;
 		    if (notes[nextIndex].notes[0] == true)
 		    {
-		    	GameObject newNote = Instantiate(Note0, note0StartPos,
-		    		Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    }
-
-		    //initialize the fields of the music note
+		    if (notes[nextIndex].notes[1] == true)
+		    {
+		    	GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    }
+		    if (notes[nextIndex].notes[2] == true)
+		    {
+		    	GameObject newNote2 = Instantiate(Note2, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    }
+		    if (notes[nextIndex].notes[3] == true)
+		    {
+		    	GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    }
 
 		    nextIndex++;
 		}
