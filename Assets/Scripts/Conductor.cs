@@ -64,10 +64,10 @@ public class Conductor : MonoBehaviour
 	    bool[] testNote2 = { false, false, true, false };
 	    bool[] testNote3 = { false, false, false, true };
 	    bool[] testDoubleNote = { true, false, true, false };
-	    notes = new Notes[] { new Notes(0.0f, testNote0), new Notes(8.0f, testNote0), new Notes(12.0f, testNote0),
-	    	new Notes(16.0f, testNote0), new Notes(18.0f, testNote0), new Notes(20.0f, testNote0),
-	    	new Notes(21.0f, testNote0), new Notes(22.0f, testNote0) };
-	    beatsShownInAdvance = 8.0f;
+	    notes = new Notes[] { new Notes(0.0f, testNote0), new Notes(0.5f, testNote0), new Notes(1.0f, testNote0),
+	    	new Notes(1.5f, testNote0), new Notes(2.0f, testNote0), new Notes(2.5f, testNote0),
+	    	new Notes(3.0f, testNote0), new Notes(3.5f, testNote0) };
+	    beatsShownInAdvance = 4.0f;
 	}
 
 	void Update()
@@ -85,6 +85,8 @@ public class Conductor : MonoBehaviour
 		    {
 		    	GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    }
+
+		    /*
 		    if (notes[nextIndex].notes[1] == true)
 		    {
 		    	GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -97,8 +99,19 @@ public class Conductor : MonoBehaviour
 		    {
 		    	GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    }
+		    */
 
 		    nextIndex++;
 		}
+	}
+
+	public float getSongPositionInBeats()
+	{
+		return songPositionInBeats;
+	}
+
+	public float getCurrentNotePosition()
+	{
+		return currentNotePos;
 	}
 }

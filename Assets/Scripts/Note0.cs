@@ -4,25 +4,35 @@ using UnityEngine;
 
 public class Note0 : MonoBehaviour
 {
-    float BeatsShownInAdvance = 8.0f;
+    float BeatsShownInAdvance = 4.0f;
     float current = 0.0f;
-    Vector2 SpawnPos = new Vector2(-821.9f, 554.0f);
-    Vector2 RemovePos = new Vector2(-821.9f, -279.4f);
+    Vector3 SpawnPos = new Vector3(34f, 274f, 0.0f);
+    Vector3 RemovePos = new Vector3(34f, 65f, 0.0f);
+    Conductor conductor;
     GameObject songManager;
 
     void Awake()
     {
-    	songManager = GameObject.Find("SongManager");
-        Conductor conductor = songManager.GetComponent<Conductor>();
-        current = conductor.currentNotePos;
+        songManager = GameObject.FindWithTag("SongManager");
+        conductor = songManager.GetComponent<Conductor>();
+        current = conductor.getCurrentNotePosition();
+
     }
 
     void Update()
 	{	
-        Conductor conductor = songManager.GetComponent<Conductor>();
-	    float songPos = conductor.songPositionInBeats;
+        songManager = GameObject.FindWithTag("SongManager");
+        conductor = songManager.GetComponent<Conductor>();
+	    float songPos = conductor.getSongPositionInBeats();
 
-	    this.transform.position = Vector2.Lerp(SpawnPos,
-	    	RemovePos, (BeatsShownInAdvance - (current - songPos)) / BeatsShownInAdvance);    
+        float lerpValue = (BeatsShownInAdvance - (current - songPos)) / BeatsShownInAdvance;
+        float currentYValue = SpawnPos.y - ((SpawnPos.y - RemovePos.y) * lerpValue);
+
+        this.transform.position = new Vector3(SpawnPos.x, currentYValue, 0.0f);
+
+        if(transform.position.y < 64)
+        {
+            Destroy(gameObject);    
+        }
 	}
 }
