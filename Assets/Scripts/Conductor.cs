@@ -64,9 +64,10 @@ public class Conductor : MonoBehaviour
 	    bool[] testNote2 = { false, false, true, false };
 	    bool[] testNote3 = { false, false, false, true };
 	    bool[] testDoubleNote = { true, false, true, false };
-	    notes = new Notes[] { new Notes(0.0f, testNote0), new Notes(0.5f, testNote0), new Notes(1.0f, testNote0),
-	    	new Notes(1.5f, testNote0), new Notes(2.0f, testNote0), new Notes(2.5f, testNote0),
-	    	new Notes(3.0f, testNote0), new Notes(3.5f, testNote0) };
+	    bool[] testDoubleNote2 = { false, true, false, true };
+	    notes = new Notes[] { new Notes(0.0f, testNote0), new Notes(0.5f, testNote0), new Notes(1.0f, testNote1),
+	    	new Notes(1.5f, testNote2), new Notes(2.0f, testNote3), new Notes(2.5f, testNote1),
+	    	new Notes(3.0f, testDoubleNote), new Notes(3.5f, testDoubleNote2) };
 	    beatsShownInAdvance = 4.0f;
 	}
 
@@ -85,8 +86,6 @@ public class Conductor : MonoBehaviour
 		    {
 		    	GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    }
-
-		    /*
 		    if (notes[nextIndex].notes[1] == true)
 		    {
 		    	GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -99,7 +98,6 @@ public class Conductor : MonoBehaviour
 		    {
 		    	GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    }
-		    */
 
 		    nextIndex++;
 		}
