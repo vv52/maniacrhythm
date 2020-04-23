@@ -7,6 +7,8 @@ Maniac Rhythm is a bemani-style rhythm game made in Unity utilizing techniques d
 
 This project will utilize a four note button layout (equivalent to 4B style in DJMAX), with all music and visuals coming from projects by Vanja Venezia.
 
+The visual style is heavily influenced by Sega Saturn era bullet hell games, particularly the aesthetics of Ikaruga and Radiant Silvergun (both by Treasure), hence the nod to Japanese bullet hell games via "Maniac".
+
 There will be selectable songs and difficulty levels as well as unreleased music made specifically for this game (if time allows).
 
 ## Gameplay Mockup / Visual Design
