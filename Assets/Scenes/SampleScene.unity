@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 264083343}
   - component: {fileID: 264083345}
   - component: {fileID: 264083344}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NoteLaneGraphic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -247,7 +247,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 648911307}
   - component: {fileID: 648911306}
   - component: {fileID: 648911305}
+  - component: {fileID: 648911309}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -380,6 +381,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &648911309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648911304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 1080
+  m_MinHeight: 1920
+  m_PreferredWidth: 1080
+  m_PreferredHeight: 1920
+  m_FlexibleWidth: 1
+  m_FlexibleHeight: 1
+  m_LayoutPriority: 0
 --- !u!1 &751121488
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,7 +784,7 @@ GameObject:
   - component: {fileID: 1801494572}
   m_Layer: 0
   m_Name: SongManager
-  m_TagString: Untagged
+  m_TagString: SongManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
