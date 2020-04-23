@@ -32,6 +32,17 @@ public class Conductor : MonoBehaviour
 	//the index of the next note to be spawned
 	int nextIndex = 0;
 
+	public GameObject Note0;
+	Vector3 note0StartPos = new Vector3(-821.9f, 554.0f, 0.0f);
+	public GameObject Note1;
+	Vector3 note1StartPos = new Vector3(-720.2f, 554.0f, 0.0f);
+	public GameObject Note2;
+	Vector3 note2StartPos = new Vector3(-624.2f, 554.0f, 0.0f);
+	public GameObject Note3;
+	Vector3 note3StartPos = new Vector3(-523.8f, 554.0f, 0.0f);
+
+	public GameObject Canvas;
+
 	void Start()
 	{
 	    //Load the AudioSource attached to the Conductor GameObject
@@ -45,6 +56,10 @@ public class Conductor : MonoBehaviour
 
 	    //Start the music
 	    musicSource.Play();
+
+	    //TEST
+	    bool[] testNote = { true, false, false, false };
+	    notes = new Notes[] { new Notes(0.0f, testNote), new Notes(2.0f, testNote) };
 	}
 
 	void Update()
@@ -57,7 +72,11 @@ public class Conductor : MonoBehaviour
 
 	    if (nextIndex < notes.Length && notes[nextIndex].pos < songPositionInBeats)
 		{
-		    //Instantiate( /* Music Note Prefab */ );
+		    if (notes[nextIndex].notes[0] == true)
+		    {
+		    	GameObject newNote = Instantiate(Note0, note0StartPos,
+		    		Quaternion.identity, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    }
 
 		    //initialize the fields of the music note
 
