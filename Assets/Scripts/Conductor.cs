@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Conductor : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class Conductor : MonoBehaviour
 	public float beatsShownInAdvance;
 
 	//keep all the position-in-beats of notes in the song
-	Notes[] notes = new Notes[4];
+	List<Notes> notes = new List<Notes>();
 
 	//the index of the next note to be spawned
 	int nextIndex = 0;
@@ -60,10 +61,11 @@ public class Conductor : MonoBehaviour
 	    //Start the music
 	    musicSource.Play();
 
-	    //TODO: WRITE LOAD FUNCTION
-	    //loadChart(chartFilename);
+	    //Load the chart for the current song
+	    loadChart();
 
 	    //TEST
+	    /*
 	    bool[] testNote0 = { true, false, false, false };
 	    bool[] testNote1 = { false, true, false, false };
 	    bool[] testNote2 = { false, false, true, false };
@@ -74,6 +76,7 @@ public class Conductor : MonoBehaviour
 	    	new Notes(1.5f, testNote2), new Notes(2.0f, testNote3), new Notes(2.5f, testNote1),
 	    	new Notes(3.0f, testDoubleNote), new Notes(3.5f, testDoubleNote2) };
 	    beatsShownInAdvance = 4.0f;
+	    */
 	}
 
 	void Update()
@@ -84,7 +87,7 @@ public class Conductor : MonoBehaviour
 	    //determine how many beats since the song started
 	    songPositionInBeats = songPosition / secPerBeat;
 
-	    if (nextIndex < notes.Length && notes[nextIndex].pos < songPositionInBeats + beatsShownInAdvance)
+	    if (nextIndex < notes.Count && notes[nextIndex].pos < songPositionInBeats + beatsShownInAdvance)
 		{
 			currentNotePos = notes[nextIndex].pos;
 		    if (notes[nextIndex].notes[0] == true)
@@ -106,6 +109,32 @@ public class Conductor : MonoBehaviour
 
 		    nextIndex++;
 		}
+	}
+
+	void loadChart()
+	{	
+		//TODO: FIX THIS FUNCTION
+
+    	//string[] chart = System.IO.File.ReadAllLines(@"Assets/Charts/the_world_between.txt");
+
+		string unParsedChart = System.IO.File.ReadAllText(@"Assets/Charts/the_world_between3.txt");
+		string[] chart = unParsedChart.Split(',');
+        for (int i = 0; i < chart.Length; i++)
+        {
+        	string temp = chart[i];
+        	float notePosition = float.Parse(temp, System.Globalization.CultureInfo.InvariantCulture);
+        	bool[] temp2 = new bool[] { false, false, false, false };
+        	Notes newNote = new Notes(notePosition, temp2);
+            for (int j = 0; i < 4; i++)
+            {
+            	if (chart[i + 1 + j] == "t")
+            	{
+            		newNote.notes[j] = true;
+            	}
+            }
+            notes.Add(newNote);
+            i += 4;
+        }
 	}
 
 	public float getSongPositionInBeats()

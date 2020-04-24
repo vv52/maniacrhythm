@@ -1,4 +1,4 @@
-0.0 t f t f
+0.0 t f t f 
 0.5 f t f f
 1.0 f f t f
 1.5 f f f t
@@ -170,6 +170,3 @@
 60.0  t t f f
 60.75 t t f f
 61.5  t t f f
-
-
-64.0
