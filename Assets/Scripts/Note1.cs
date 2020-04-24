@@ -6,8 +6,8 @@ public class Note1 : MonoBehaviour
 {
     float BeatsShownInAdvance = 4.0f;
     float current = 0.0f;
-    Vector3 SpawnPos = new Vector3(59.3f, 272f, 0.0f);
-    Vector3 RemovePos = new Vector3(59.3f, 63f, 0.0f);
+    Vector3 SpawnPos = new Vector3(239.697f, 1100.225f, 0.0f);
+    Vector3 RemovePos = new Vector3(239.697f, 254.831f, 0.0f);
     Conductor conductor;
     GameObject songManager;
 
@@ -30,7 +30,7 @@ public class Note1 : MonoBehaviour
 
         this.transform.position = new Vector3(SpawnPos.x, currentYValue, 0.0f);
 
-        if(transform.position.y < 62)
+        if(transform.position.y < 250.787)
         {
             Destroy(gameObject);    
         }

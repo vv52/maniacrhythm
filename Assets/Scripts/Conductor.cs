@@ -35,7 +35,9 @@ public class Conductor : MonoBehaviour
 	//the index of the next note to be spawned
 	int nextIndex = 0;
 
-	public float currentNotePos;
+	float currentNotePos;
+
+	public string chartFilename;
 
 	public GameObject Note0;
 	public GameObject Note1;
@@ -57,6 +59,9 @@ public class Conductor : MonoBehaviour
 
 	    //Start the music
 	    musicSource.Play();
+
+	    //TODO: WRITE LOAD FUNCTION
+	    //loadChart(chartFilename);
 
 	    //TEST
 	    bool[] testNote0 = { true, false, false, false };
