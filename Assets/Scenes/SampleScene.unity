@@ -827,7 +827,7 @@ MonoBehaviour:
   musicSource: {fileID: 1801494573}
   firstBeatOffset: 3.4285715
   beatsShownInAdvance: 8
-  chartFilename: Assets/Charts/the_world_between2.txt
+  chartFilename: Assets/Charts/the_world_between.txt
   Note0: {fileID: 8916330616187449573, guid: 25464aa2bc8fa4748b54f93145505a27, type: 3}
   Note1: {fileID: 3342804858052516674, guid: fcce548a5a043634ba5f8494558f954d, type: 3}
   Note2: {fileID: 5856821477191628266, guid: 6fdd1583c65bf214f803d70e49f7d92d, type: 3}
