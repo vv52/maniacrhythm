@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.IO;
 
 public class Conductor : MonoBehaviour
 {
@@ -113,10 +114,31 @@ public class Conductor : MonoBehaviour
 
 	void loadChart()
 	{	
+		using (StreamReader readChart = File.OpenText(chartFilename))
+		{
+			while (!readChart.EndOfStream)
+			{
+				string notesAtBeat = readChart.ReadLine();
+				string[] data = notesAtBeat.Split(' ');
+				float posBeats = float.Parse(data[0]);
+				Notes newNote = new Notes(posBeats);
+				for (int i = 1; i < 5; i++)
+	            {
+	            	if (data[i] == "t")
+	            	{
+	            		newNote.notes[i - 1] = true;
+	            	}
+	            }
+	            notes.Add(newNote);
+			}
+			
+		}
+
 		//TODO: FIX THIS FUNCTION
 
-    	//string[] chart = System.IO.File.ReadAllLines(@"Assets/Charts/the_world_between.txt");
+    	//
 
+		/*
 		string unParsedChart = System.IO.File.ReadAllText(@"Assets/Charts/the_world_between3.txt");
 		string[] chart = unParsedChart.Split(',');
         for (int i = 0; i < chart.Length; i++)
@@ -135,6 +157,7 @@ public class Conductor : MonoBehaviour
             notes.Add(newNote);
             i += 4;
         }
+        */
 	}
 
 	public float getSongPositionInBeats()

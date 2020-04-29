@@ -16,4 +16,11 @@ public class Notes
     	pos = posBeats;
     	activeNotes.CopyTo(notes, 0);
     }
+
+    //alernate constructor
+    public Notes (float posBeats)
+    {
+        pos = posBeats;
+        notes = new bool[] { false, false, false, false };
+    }
 }
