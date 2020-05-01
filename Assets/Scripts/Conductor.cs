@@ -12,6 +12,9 @@ public class Conductor : MonoBehaviour
 	//This is determined by the song you're trying to sync up to
 	public float songBpm;
 
+	//How early or late in beats can a note be pressed and still register
+	public float judgmentValue;
+
 	//The number of seconds for each song beat
 	public float secPerBeat;
 
@@ -57,10 +60,11 @@ public class Conductor : MonoBehaviour
 	int totalMissed = 0;
 
 	//this is to ensure that combos can be tracked after one is missed
-	int difFromLastCombo = 0;
+	//int difFromLastCombo = 0;
 
 	float currentNotePos;
 	bool[] currentNoteBoolArray = new bool[] { false, false, false, false };
+	float lastPress = 0;
 
 	bool lastNoteHit = false;
 
@@ -75,9 +79,9 @@ public class Conductor : MonoBehaviour
 
 	public GameObject Canvas;
 
-	public Text Score;
-	public Text Combo;
-	public Text Accuracy;
+	public Text ScoreText;
+	public Text ComboText;
+	public Text AccuracyText;
 
 	void Start()
 	{
@@ -105,8 +109,6 @@ public class Conductor : MonoBehaviour
 	    //determine how many beats since the song started
 	    songPositionInBeats = songPosition / secPerBeat;
 
-	    checkMiss();
-
 	    if (nextIndex < notes.Count && notes[nextIndex].pos < songPositionInBeats + beatsShownInAdvance)
 		{
 			currentNotePos = notes[nextIndex].pos;
@@ -116,36 +118,54 @@ public class Conductor : MonoBehaviour
 		    if (notes[nextIndex].notes[0] == true)
 		    {
 		    	GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	numNotesPassed++;
+		    	//numNotesPassed++;
 		    }
 		    if (notes[nextIndex].notes[1] == true)
 		    {
 		    	GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	numNotesPassed++;
+		    	//numNotesPassed++;
 		    }
 		    if (notes[nextIndex].notes[2] == true)
 		    {
 		    	GameObject newNote2 = Instantiate(Note2, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	numNotesPassed++;
+		    	//numNotesPassed++;
 		    }
 		    if (notes[nextIndex].notes[3] == true)
 		    {
 		    	GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	numNotesPassed++;
+		    	//numNotesPassed++;
 		    }
-
-		    Score.text = score.ToString();
-		    Combo.text = currentCombo.ToString();
-		    float accuracy = numNotesHit / numNotesPassed;
-		    Accuracy.text = accuracy.ToString();
 
 		    nextIndex++;
 		}
 
-		if (songPositionInBeats > (currentNoteCheck[0].pos + 0.1))
+		if (songPositionInBeats > (currentNoteCheck[0].pos + judgmentValue))
 		{
+			numNotesPassed++;
+			if (lastPress < (currentNoteCheck[0].pos - judgmentValue) ||
+				lastPress > (currentNoteCheck[0].pos + judgmentValue))
+			{
+				lastNoteHit = false;
+				currentCombo = 0;
+				totalMissed++;
+			}
 			currentNoteCheck.RemoveAt(0);
 		}
+
+		ScoreText.text = score.ToString();
+		ComboText.text = currentCombo.ToString();
+		float accuracy = 100.0f;
+		if (numNotesPassed > 0)
+		{
+			accuracy = (Convert.ToSingle(numNotesHit) / Convert.ToSingle(numNotesPassed)) * 100;
+		}
+		if (accuracy > 100.0f)
+		{
+			accuracy = 100.0f;
+		}
+		AccuracyText.text = Convert.ToInt32(accuracy).ToString() + "%";
+
+		checkMiss();
 	}
 
 	void loadChart()
@@ -183,12 +203,17 @@ public class Conductor : MonoBehaviour
 	public void note0Pressed()
     {
     	float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - 0.1) && pressTime < (currentNoteCheck[0].pos + 0.1)
+    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[0] == true)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
     		score += 10;
+    	}
+    	if (pressTime > lastPress)
+    	{
+    		lastPress = pressTime;
     	}
 
     	checkCombo();
@@ -197,12 +222,17 @@ public class Conductor : MonoBehaviour
     public void note1Pressed()
     {
 		float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - 0.1) && pressTime < (currentNoteCheck[0].pos + 0.1)
+    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[1] == true)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
     		score += 10;
+    	}
+    	if (pressTime > lastPress)
+    	{
+    		lastPress = pressTime;
     	}
 
     	checkCombo();
@@ -211,12 +241,17 @@ public class Conductor : MonoBehaviour
     public void note2Pressed()
     {
     	float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - 0.1) && pressTime < (currentNoteCheck[0].pos + 0.1)
+    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[2] == true)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
     		score += 10;
+    	}
+    	if (pressTime > lastPress)
+    	{
+    		lastPress = pressTime;
     	}
 
     	checkCombo();
@@ -225,12 +260,17 @@ public class Conductor : MonoBehaviour
     public void note3Pressed()
     {
     	float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - 0.1) && pressTime < (currentNoteCheck[0].pos + 0.1)
+    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[3] == true)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
     		score += 10;
+    	}
+    	if (pressTime > lastPress)
+    	{
+    		lastPress = pressTime;
     	}
 
     	checkCombo();
@@ -238,7 +278,7 @@ public class Conductor : MonoBehaviour
 
     void checkCombo()
     {
-    	if (numNotesPassed == (numNotesHit + difFromLastCombo))
+    	if (lastNoteHit)
     	{
     		currentCombo++;
     		if (currentCombo > maxCombo)
@@ -250,14 +290,14 @@ public class Conductor : MonoBehaviour
 
     void checkMiss()
     {
-    	if (numNotesPassed >= numNotesHit + difFromLastCombo)
+    	/*
+    	if (numNotesPassed > numNotesHit + totalMissed)
 		{
-			difFromLastCombo = 0;
+			lastNoteHit = false;
+			//totalMissed = numNotesPassed - numNotesHit;
+			//difFromLastCombo += numNotesPassed - numNotesHit + difFromLastCombo;
+			currentCombo = 0;
 		}
-		else if (numNotesPassed < numNotesHit + difFromLastCombo)
-		{
-			totalMissed = numNotesPassed - numNotesHit;
-			difFromLastCombo += numNotesPassed - numNotesHit + difFromLastCombo;
-		}
+		*/
     }
 }

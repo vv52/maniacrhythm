@@ -306,7 +306,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &580286627
 MonoBehaviour:
@@ -934,6 +934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 140
+  judgmentValue: 0.15
   secPerBeat: 0.42857143
   songPosition: 0
   songPositionInBeats: 0
@@ -948,9 +949,9 @@ MonoBehaviour:
   Note2: {fileID: 5856821477191628266, guid: 6fdd1583c65bf214f803d70e49f7d92d, type: 3}
   Note3: {fileID: 8207023154393647196, guid: 29dabf86df6c52b4c8ee0db701773b7c, type: 3}
   Canvas: {fileID: 648911304}
-  Score: {fileID: 975710748}
-  Combo: {fileID: 1688430637}
-  Accuracy: {fileID: 751121490}
+  ScoreText: {fileID: 975710748}
+  ComboText: {fileID: 1688430637}
+  AccuracyText: {fileID: 751121490}
 --- !u!82 &1801494573
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1061,36 +1062,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1901573527
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1901573528}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1901573528
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901573527}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 475, y: 267, z: -2381.1328}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004156220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,5 +1141,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
