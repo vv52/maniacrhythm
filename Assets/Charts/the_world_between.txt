@@ -247,3 +247,9 @@
 121.833 f t f f
 122.0 f f t t
 122.5 f t f f
+124.0 f f t t
+124.5 f f f t
+125.5 f f f t
+126.0 f f t t
+127.0 f t f t
+127.5 t f t f
