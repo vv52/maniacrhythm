@@ -22,6 +22,9 @@
 # Videos
 [Aa]ssets/Videos/
 
+# Game build
+maniacrhythm_Data/
+
 # Visual Studio cache directory
 .vs/
 

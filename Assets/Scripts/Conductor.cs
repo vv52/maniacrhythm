@@ -83,12 +83,6 @@ public class Conductor : MonoBehaviour
 	public Text ComboText;
 	public Text AccuracyText;
 
-	void Awake()
-	{
-		//Load the chart for the current song
-	    loadChart();
-	}
-
 	void Start()
 	{
 	    //Load the AudioSource attached to the Conductor GameObject
@@ -102,6 +96,9 @@ public class Conductor : MonoBehaviour
 
 	    //Start the music
 	    musicSource.Play();
+
+	    //Load the chart for the current song
+	    loadChart();
 	}
 
 	void Update()
@@ -147,19 +144,11 @@ public class Conductor : MonoBehaviour
 				lastNoteHit = false;
 				currentCombo = 0;
 				totalMissed++;
-				maniaMultiplier = 1;
 			}
 			currentNoteCheck.RemoveAt(0);
 		}
 
-		if (maniaMultiplier > 1.0f)
-		{
-			ScoreText.text = score.ToString() + " x" + Convert.ToInt32(maniaMultiplier).ToString();
-		}
-		else
-		{
-			ScoreText.text = score.ToString();
-		}
+		ScoreText.text = score.ToString();
 		ComboText.text = currentCombo.ToString();
 		float accuracy = 100.0f;
 		if (numNotesPassed > 0)
