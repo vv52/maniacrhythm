@@ -83,6 +83,12 @@ public class Conductor : MonoBehaviour
 	public Text ComboText;
 	public Text AccuracyText;
 
+	void Awake()
+	{
+		//Load the chart for the current song
+	    loadChart();
+	}
+
 	void Start()
 	{
 	    //Load the AudioSource attached to the Conductor GameObject
@@ -96,9 +102,6 @@ public class Conductor : MonoBehaviour
 
 	    //Start the music
 	    musicSource.Play();
-
-	    //Load the chart for the current song
-	    loadChart();
 	}
 
 	void Update()
