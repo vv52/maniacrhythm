@@ -59,8 +59,8 @@ public class Conductor : MonoBehaviour
 	//this is to keep track of total misses
 	int totalMissed = 0;
 
-	//this is to ensure that combos can be tracked after one is missed
-	//int difFromLastCombo = 0;
+	//keeps track of mania
+	int maniaMultiplier = 1;
 
 	float currentNotePos;
 	bool[] currentNoteBoolArray = new bool[] { false, false, false, false };
@@ -118,22 +118,18 @@ public class Conductor : MonoBehaviour
 		    if (notes[nextIndex].notes[0] == true)
 		    {
 		    	GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	//numNotesPassed++;
 		    }
 		    if (notes[nextIndex].notes[1] == true)
 		    {
 		    	GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	//numNotesPassed++;
 		    }
 		    if (notes[nextIndex].notes[2] == true)
 		    {
 		    	GameObject newNote2 = Instantiate(Note2, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	//numNotesPassed++;
 		    }
 		    if (notes[nextIndex].notes[3] == true)
 		    {
 		    	GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	//numNotesPassed++;
 		    }
 
 		    nextIndex++;
@@ -148,11 +144,19 @@ public class Conductor : MonoBehaviour
 				lastNoteHit = false;
 				currentCombo = 0;
 				totalMissed++;
+				maniaMultiplier = 1;
 			}
 			currentNoteCheck.RemoveAt(0);
 		}
 
-		ScoreText.text = score.ToString();
+		if (maniaMultiplier > 1.0f)
+		{
+			ScoreText.text = score.ToString() + " x" + Convert.ToInt32(maniaMultiplier).ToString();
+		}
+		else
+		{
+			ScoreText.text = score.ToString();
+		}
 		ComboText.text = currentCombo.ToString();
 		float accuracy = 100.0f;
 		if (numNotesPassed > 0)
@@ -164,8 +168,6 @@ public class Conductor : MonoBehaviour
 			accuracy = 100.0f;
 		}
 		AccuracyText.text = Convert.ToInt32(accuracy).ToString() + "%";
-
-		checkMiss();
 	}
 
 	void loadChart()
@@ -209,7 +211,7 @@ public class Conductor : MonoBehaviour
     	{
     		numNotesHit++;
     		lastNoteHit = true;
-    		score += 10;
+    		score += (10 * maniaMultiplier);
     	}
     	if (pressTime > lastPress)
     	{
@@ -228,7 +230,7 @@ public class Conductor : MonoBehaviour
     	{
     		numNotesHit++;
     		lastNoteHit = true;
-    		score += 10;
+    		score += (10 * maniaMultiplier);
     	}
     	if (pressTime > lastPress)
     	{
@@ -247,7 +249,7 @@ public class Conductor : MonoBehaviour
     	{
     		numNotesHit++;
     		lastNoteHit = true;
-    		score += 10;
+    		score += (10 * maniaMultiplier);
     	}
     	if (pressTime > lastPress)
     	{
@@ -266,7 +268,7 @@ public class Conductor : MonoBehaviour
     	{
     		numNotesHit++;
     		lastNoteHit = true;
-    		score += 10;
+    		score += (10 * maniaMultiplier);
     	}
     	if (pressTime > lastPress)
     	{
@@ -281,23 +283,18 @@ public class Conductor : MonoBehaviour
     	if (lastNoteHit)
     	{
     		currentCombo++;
+    		if (currentCombo >= 100 && currentCombo < 250)
+    		{
+    			maniaMultiplier = 2;
+    		}
+    		if (currentCombo >= 250)
+    		{
+    			maniaMultiplier = 4;
+    		}
     		if (currentCombo > maxCombo)
     		{
     			maxCombo = currentCombo;
     		}
     	}
-    }
-
-    void checkMiss()
-    {
-    	/*
-    	if (numNotesPassed > numNotesHit + totalMissed)
-		{
-			lastNoteHit = false;
-			//totalMissed = numNotesPassed - numNotesHit;
-			//difFromLastCombo += numNotesPassed - numNotesHit + difFromLastCombo;
-			currentCombo = 0;
-		}
-		*/
     }
 }
