@@ -291,6 +291,10 @@ public class Conductor : MonoBehaviour
     		{
     			maniaMultiplier = 4;
     		}
+    		if (currentCombo < 100)
+    		{
+    			maniaMultiplier = 1;
+    		}
     		if (currentCombo > maxCombo)
     		{
     			maxCombo = currentCombo;
