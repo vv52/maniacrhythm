@@ -934,6 +934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 140
+  songEnd: 200
   judgmentValue: 0.15
   secPerBeat: 0.42857143
   songPosition: 0
@@ -942,7 +943,7 @@ MonoBehaviour:
   musicSource: {fileID: 1801494573}
   firstBeatOffset: 3.428571
   beatsShownInAdvance: 8
-  score: 0
+  numNotesTotal: 344
   chartFilename: Assets/Charts/the_world_between.txt
   Note0: {fileID: 8916330616187449573, guid: 25464aa2bc8fa4748b54f93145505a27, type: 3}
   Note1: {fileID: 3342804858052516674, guid: fcce548a5a043634ba5f8494558f954d, type: 3}
@@ -962,7 +963,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f4470384ea41d00419c1a05008eb83ff, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3435cfaed8b8eff46b84021540c131ab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

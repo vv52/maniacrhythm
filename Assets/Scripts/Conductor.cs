@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 using System;
 using System.IO;
 
@@ -11,6 +12,9 @@ public class Conductor : MonoBehaviour
     //Song beats per minute
 	//This is determined by the song you're trying to sync up to
 	public float songBpm;
+
+	//Beat position at which the chart concludes
+	public float songEnd;
 
 	//How early or late in beats can a note be pressed and still register
 	public float judgmentValue;
@@ -36,10 +40,13 @@ public class Conductor : MonoBehaviour
 	//Number of beats shown in advance before reaching the judgement line
 	public float beatsShownInAdvance;
 
-	public float score = 0;
+	static public float score = 0;
 
 	//keep all the position-in-beats of notes in the song
 	List<Notes> notes = new List<Notes>();
+
+	//number of notes in chart
+	public int numNotesTotal;
 
 	//the index of the next note to be spawned
 	int nextIndex = 0;
@@ -54,10 +61,13 @@ public class Conductor : MonoBehaviour
 	int currentCombo = 0;
 
 	//this is to keep track of max combo
-	int maxCombo = 0;
+	static int maxCombo = 0;
 
 	//this is to keep track of total misses
-	int totalMissed = 0;
+	static int totalMissed = 0;
+
+	//song accuracy
+	static float accuracy = 100.0f;
 
 	//keeps track of mania
 	int maniaMultiplier = 1;
@@ -103,13 +113,18 @@ public class Conductor : MonoBehaviour
 
 	void Update()
 	{
+		if (songPositionInBeats > songEnd)
+		{
+			loadResults();
+		}
+
 	    //determine how many seconds since the song started
 	    songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
 
 	    //determine how many beats since the song started
 	    songPositionInBeats = songPosition / secPerBeat;
 
-	    if (nextIndex < notes.Count && notes[nextIndex].pos < songPositionInBeats + beatsShownInAdvance)
+	    if (nextIndex < numNotesTotal && notes[nextIndex].pos < songPositionInBeats + beatsShownInAdvance)
 		{
 			currentNotePos = notes[nextIndex].pos;
 			notes[nextIndex].notes.CopyTo(currentNoteBoolArray, 0);
@@ -132,28 +147,34 @@ public class Conductor : MonoBehaviour
 		    	GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    }
 
-		    nextIndex++;
+		    if (nextIndex < numNotesTotal)
+		    {
+		    	nextIndex++;
+			}
 		}
 
-		if (songPositionInBeats > (currentNoteCheck[0].pos + judgmentValue))
+		if (currentNoteCheck.Count > 0)
 		{
-			numNotesPassed++;
-			if (lastPress < (currentNoteCheck[0].pos - judgmentValue) ||
-				lastPress > (currentNoteCheck[0].pos + judgmentValue))
+			if (songPositionInBeats > (currentNoteCheck[0].pos + judgmentValue))
 			{
-				lastNoteHit = false;
-				currentCombo = 0;
-				totalMissed++;
+				numNotesPassed++;
+				if (lastPress < (currentNoteCheck[0].pos - judgmentValue) ||
+					lastPress > (currentNoteCheck[0].pos + judgmentValue))
+				{
+					lastNoteHit = false;
+					currentCombo = 0;
+					totalMissed++;
+				}
+				currentNoteCheck.RemoveAt(0);
 			}
-			currentNoteCheck.RemoveAt(0);
 		}
 
 		ScoreText.text = score.ToString();
 		ComboText.text = currentCombo.ToString();
-		float accuracy = 100.0f;
 		if (numNotesPassed > 0)
 		{
-			accuracy = (Convert.ToSingle(numNotesHit) / Convert.ToSingle(numNotesPassed)) * 100;
+			accuracy = ((Convert.ToSingle(numNotesPassed) - Convert.ToSingle(totalMissed)) 
+						/ Convert.ToSingle(numNotesPassed)) * 100;
 		}
 		if (accuracy > 100.0f)
 		{
@@ -292,5 +313,11 @@ public class Conductor : MonoBehaviour
     			maxCombo = currentCombo;
     		}
     	}
+    }
+
+    void loadResults()
+    {
+    	SceneManager.LoadScene("results", LoadSceneMode.Single);
+		SceneManager.SetActiveScene(SceneManager.GetSceneByName("results"));
     }
 }

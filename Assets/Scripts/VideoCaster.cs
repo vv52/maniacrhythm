@@ -23,6 +23,10 @@ public class VideoCaster : MonoBehaviour
     	{
     		StartCoroutine(PlayVideo());
     	}
+        if (conductor.songPositionInBeats >= conductor.songEnd)
+        {
+            videoPlayer.Pause();
+        }
     }
 
     IEnumerator PlayVideo()
