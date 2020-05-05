@@ -935,7 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   songBpm: 140
   songEnd: 200
-  judgmentValue: 0.15
+  judgmentValue: 0.2
   secPerBeat: 0.42857143
   songPosition: 0
   songPositionInBeats: 0
