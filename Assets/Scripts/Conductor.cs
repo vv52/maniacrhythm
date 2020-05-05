@@ -89,6 +89,8 @@ public class Conductor : MonoBehaviour
 
 	public GameObject Canvas;
 
+	public GameObject ScoreSaver;
+
 	public Text ScoreText;
 	public Text ComboText;
 	public Text AccuracyText;
@@ -317,7 +319,39 @@ public class Conductor : MonoBehaviour
 
     void loadResults()
     {
+    	var scoreSaverObj = GameObject.Find("ScoreSaver");
+    	var scoreSaver = scoreSaverObj.GetComponent<scoreSaver>();
+    	scoreSaver.playerScore = Convert.ToInt32(score);
+    	scoreSaver.playerAccuracy = Convert.ToInt32(accuracy);
+   		scoreSaver.playerMaxCombo = maxCombo;
+    	if (maxCombo == numNotesTotal)
+    	{
+    		scoreSaver.playerFullCombo = true;
+    	}
+    	else
+    	{
+    		scoreSaver.playerFullCombo = false;
+    	}
+    	if (accuracy >= 98.0f)
+    	{
+    		scoreSaver.playerGrade = "S";
+    	}
+    	else if (accuracy < 98.0f && accuracy >= 92.0f)
+    	{
+    		scoreSaver.playerGrade = "A";
+    	}
+    	else if (accuracy < 92.0f && accuracy >= 86.0f)
+    	{
+    		scoreSaver.playerGrade = "B";
+    	}
+    	else if (accuracy < 86.0f && accuracy >= 80.0)
+    	{
+    		scoreSaver.playerGrade = "C";
+    	}
+    	else
+    	{
+    		scoreSaver.playerGrade = "Failed";
+    	}
     	SceneManager.LoadScene("results", LoadSceneMode.Single);
-		SceneManager.SetActiveScene(SceneManager.GetSceneByName("results"));
     }
 }
