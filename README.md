@@ -2,6 +2,8 @@
 
 !["Maniac Rhythm Title / Splash Screen"](maniacsplash.jpg)
 
+Current Version: alpha v0.1
+
 ## What is it?
 Maniac Rhythm is a bemani-style rhythm game made in Unity utilizing techniques discussed by Yu Chao and Graham Tattersall on Gamasutra.
 
@@ -19,8 +21,9 @@ Background of title / splash screen was created in [Mandelbulber](https://www.ma
 
 Audio reactive background graphics for songs will be constructed in and rendered from [Magic Music Visuals](https://magicmusicvisuals.com/).
 
-## Gameplay Mockup / Visual Design
-!["Maniac Rhythm Gameplay Mockup"](mockup.png)
+## Gameplay Demo
+
+[![ManiacRhythm alpha v0.1 demo](http://img.youtube.com/vi/xYpBw4DtNRI/0.jpg)](http://www.youtube.com/watch?v=xYpBw4DtNRI "ManiacRhythm alpha v0.1 demo")
 
 ## Goals
 1. Four note lanes with fair judgement
@@ -33,3 +36,20 @@ Audio reactive background graphics for songs will be constructed in and rendered
 1. 5B, 6B, 7B, or 8B mode
 2. More music than the two songs planned
 3. Ranking / leaderboards
+
+## Current Progress
+
+As of alpha v0.1:
+1. Four note lanes
+2. Two difficulty selections that correspond to normal or strict judgement
+3. Audio reactive video background
+4. Combo system with point multipliers
+5. Max Combo / Full Combo tracking
+6. Grade assigned based on accuracy
+7. One song, half of actual song length
+
+New future goals:
+1. 7B "True" mode, 10B "Maniac" mode
+2. 2 player mode
+3. More songs and stat tracking
+4. Visual charting engine
