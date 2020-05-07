@@ -324,7 +324,7 @@ public class Conductor : MonoBehaviour
     	scoreSaver.playerScore = Convert.ToInt32(score);
     	scoreSaver.playerAccuracy = Convert.ToInt32(accuracy);
    		scoreSaver.playerMaxCombo = maxCombo;
-    	if (maxCombo == numNotesTotal)
+    	if (accuracy == 100.0f)
     	{
     		scoreSaver.playerFullCombo = true;
     	}
@@ -350,7 +350,7 @@ public class Conductor : MonoBehaviour
     	}
     	else
     	{
-    		scoreSaver.playerGrade = "Failed";
+    		scoreSaver.playerGrade = "F";
     	}
     	SceneManager.LoadScene("results", LoadSceneMode.Single);
     }
