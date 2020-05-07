@@ -7,6 +7,6 @@ public class blDemo : MonoBehaviour
 {
     public void OnClick()
     {
-    	SceneManager.LoadScene("twb_bl", LoadSceneMode.Single);
+    	SceneManager.LoadScene("level_select_bl", LoadSceneMode.Single);
     }
 }

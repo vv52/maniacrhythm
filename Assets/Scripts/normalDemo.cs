@@ -7,6 +7,6 @@ public class normalDemo : MonoBehaviour
 {
     public void OnClick()
     {
-    	SceneManager.LoadScene("twb", LoadSceneMode.Single);
+    	SceneManager.LoadScene("level_select", LoadSceneMode.Single);
     }
 }
