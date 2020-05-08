@@ -182,6 +182,10 @@ public class Conductor : MonoBehaviour
 		{
 			accuracy = 100.0f;
 		}
+		if (accuracy < 0.0f)
+		{
+			accuracy = 0.0f;
+		}
 		AccuracyText.text = Convert.ToInt32(accuracy).ToString() + "%";
 	}
 

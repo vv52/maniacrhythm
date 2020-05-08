@@ -45,6 +45,7 @@ int main()
 
 	// Let user know when operation is complete
 	cout << "Conversion complete." << endl;
+	system("pause");
 	return 0;
 }
 

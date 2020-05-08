@@ -33,11 +33,23 @@ Audio reactive background graphics for songs will be constructed in and rendered
 5. Difficulty selection
 
 ## Auxiliary Goals
-1. 5B, 6B, 7B, or 8B mode
+1. 5B, 6B, 7B, 8B, or 10B mode
 2. More music than the two songs planned
 3. Ranking / leaderboards
+5. 2 player mode
+7. Visual charting engine
 
-## Current Progress
+## Changelog
+
+As of alpha v0.1.2
+1. csvToMrc app for converting \*.csv files to  \*.txt files formatted in my proprietary MRC format. This enables charting in Excel / Google Sheets which is much simpler given it's column-based arithmetic features
+2. Fixed bug that caused accuracy to go negative sometimes if no notes are hit at the beginning of a song.
+3. Results screen now navigates back to song select with back key
+
+As of alpha v0.1.1
+1. Song select menu
+2. New song: "Treasure" by Successor
+3. Fixed bug that prevented engine from reconizing Full Combos
 
 As of alpha v0.1:
 1. Four note lanes
@@ -47,9 +59,3 @@ As of alpha v0.1:
 5. Max Combo / Full Combo tracking
 6. Grade assigned based on accuracy
 7. One song, half of actual song length
-
-New future goals:
-1. 7B "True" mode, 10B "Maniac" mode
-2. 2 player mode
-3. More songs and stat tracking
-4. Visual charting engine

@@ -1,3 +1,5 @@
+convert main() of csvToMrc to a function to allow repeat conversions
+
 edit loadChart() in Conductor
 	read bpm, start delay, etc. from charts
 	potentially move to new script(?) loadChart.cs
