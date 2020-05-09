@@ -1,5 +1,10 @@
 // csvToMrc.cpp : This program converts Excel *.csv output to MRC format
-//				  for use with ManiacRhythm alpha v0.1 and saves as *.txt
+// v0.2			  for use with ManiacRhythm alpha v0.1 and saves as *.txt
+//
+// Changelog:
+//
+// v0.2 - added ability to redo last operation or do another operation
+//        without having to restart the app
 
 #include <iostream>
 #include <string>
@@ -8,25 +13,54 @@
 #include <vector>
 using namespace std;
 
+string csvFile;
+string txtFile;
+
 string promptUserInputFile();
 string promptUserOutputFile();
-vector<string> readCsv(string& file);
+vector<string> readCsv(string file);
 vector<string> formatData(vector<string>& rawData);
 void writeTxt(vector<string>& convertedChart, string& file);
+void runProgramCycle(vector<string> rawData, vector<string> formattedData);
+void redoLastProgramCycle(vector<string> rawData, vector<string> formattedData);
 
 int main()
 {
-	string csvFile;
-	string txtFile;
 	vector<string> rawData;
 	vector<string> formattedData;
+	char menuSelection = 'A';
 
 	// Welcome user to program
-	cout << "csvToMrc : Excel to MRC Chart Converter v0.1"
+	cout << "csvToMrc : Excel to MRC Chart Converter v0.2"
 		<< endl << "--------------------------------------------"
 		<< endl << "For use with ManiacRhythm v0.1"
 		<< endl << "Written by vv52" << endl << endl;
 
+	runProgramCycle(rawData, formattedData);
+
+	while (toupper(menuSelection) != 'E')
+	{
+		cout << "[R]edo last operation, [N]ew operation, or [E]xit program? ";
+		cin >> menuSelection;
+		if (toupper(menuSelection) == 'R')
+		{
+			redoLastProgramCycle(rawData, formattedData);
+		}
+		else if (toupper(menuSelection) == 'N')
+		{
+			runProgramCycle(rawData, formattedData);
+		}
+		else if (toupper(menuSelection) != 'E')
+		{
+			cout << "Invalid input, please input \"R\", \"N\", or \"E\"." << endl;
+		}
+	}
+
+	return 0;
+}
+
+void runProgramCycle(vector<string> rawData, vector<string> formattedData)
+{
 	// Get import and export filenames
 	csvFile = promptUserInputFile();
 	txtFile = promptUserOutputFile();
@@ -40,13 +74,30 @@ int main()
 	formattedData = formatData(rawData);
 
 	// Write the data to a file
-	cout << "Writing to " << txtFile << "..." << endl;
+	cout << "Writing to " << txtFile << "..." << endl << endl;
 	writeTxt(formattedData, txtFile);
+
+	// Clean vectors
+	rawData.clear();
+	formattedData.clear();
 
 	// Let user know when operation is complete
 	cout << "Conversion complete." << endl;
-	system("pause");
-	return 0;
+}
+
+void redoLastProgramCycle(vector<string> rawData, vector<string> formattedData)
+{
+	// Read *.csv
+	cout << "Reading " << csvFile << "..." << endl;
+	rawData = readCsv(csvFile);
+
+	// Format the data as MRC
+	cout << "Formatting data..." << endl;
+	formattedData = formatData(rawData);
+
+	// Write the data to a file
+	cout << "Writing to " << txtFile << "..." << endl << endl;
+	writeTxt(formattedData, txtFile);
 }
 
 string promptUserInputFile()
@@ -69,7 +120,7 @@ string promptUserOutputFile()
 	return outputFile;
 }
 
-vector<string> readCsv(string& file)
+vector<string> readCsv(string file)
 {
 	ifstream csvFile;
 	string rawData;
@@ -137,6 +188,3 @@ void writeTxt(vector<string>& convertedChart, string& file)
 		txtFile << convertedChart[i] << endl;
 	}
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu

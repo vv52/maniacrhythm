@@ -1,5 +1,5 @@
 ﻿  csvToMrc.cpp
-C:\Users\hack3\Desktop\bin\maniacrhythm\csvToMrc\csvToMrc\csvToMrc.cpp(96,20): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\hack3\Desktop\bin\maniacrhythm\csvToMrc\csvToMrc\csvToMrc.cpp(109,20): warning C4018:  '<': signed/unsigned mismatch
-C:\Users\hack3\Desktop\bin\maniacrhythm\csvToMrc\csvToMrc\csvToMrc.cpp(135,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\hack3\Desktop\bin\maniacrhythm\csvToMrc\csvToMrc\csvToMrc.cpp(147,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\hack3\Desktop\bin\maniacrhythm\csvToMrc\csvToMrc\csvToMrc.cpp(160,20): warning C4018:  '<': signed/unsigned mismatch
+C:\Users\hack3\Desktop\bin\maniacrhythm\csvToMrc\csvToMrc\csvToMrc.cpp(186,20): warning C4018:  '<': signed/unsigned mismatch
   csvToMrc.vcxproj -> C:\Users\hack3\Desktop\bin\maniacrhythm\csvToMrc\Debug\csvToMrc.exe

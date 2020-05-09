@@ -40,7 +40,7 @@ public class Conductor : MonoBehaviour
 	//Number of beats shown in advance before reaching the judgement line
 	public float beatsShownInAdvance;
 
-	static public float score = 0;
+	public float score = 0;
 
 	//keep all the position-in-beats of notes in the song
 	List<Notes> notes = new List<Notes>();
@@ -61,13 +61,13 @@ public class Conductor : MonoBehaviour
 	int currentCombo = 0;
 
 	//this is to keep track of max combo
-	static int maxCombo = 0;
+	public int maxCombo = 0;
 
 	//this is to keep track of total misses
-	static int totalMissed = 0;
+	public int totalMissed = 0;
 
 	//song accuracy
-	static float accuracy = 100.0f;
+	public float accuracy = 100.0f;
 
 	//keeps track of mania
 	int maniaMultiplier = 1;
