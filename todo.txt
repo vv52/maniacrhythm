@@ -1,11 +1,11 @@
-FIX accuracy persistence bug
-	probably reset all scoring variables to be safe
-
-convert main() of csvToMrc to a function to allow repeat conversions
-
 edit loadChart() in Conductor
 	read bpm, start delay, etc. from charts
 	potentially move to new script(?) loadChart.cs
+
+>	implement custom file extension *.mrc for charts(?)
+		NOTE: tested, this works fine
+			  it also works with csvToMrc
+			  implement after loadChart can read song info
 
 hold notes!!
 	edit MRC to include second float?
@@ -15,8 +15,6 @@ hold notes!!
 
 consolidate note*Pressed() methods into notePressed(int noteNum)
 	this would be moved into Judgement.cs potentially
-
-implement custom file extension *.mrc for charts(?)
 
 move judgement checks to Judgement.cs(?)
 
@@ -32,6 +30,8 @@ rethink 10b mode -> 8b mode(?)
 
 
 COMPLETE:
+
+convert main() of csvToMrc to a function to allow repeat conversions
 
 build custom *.csv to *.txt converter
 	C++ console app
