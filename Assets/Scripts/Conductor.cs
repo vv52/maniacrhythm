@@ -94,6 +94,23 @@ public class Conductor : MonoBehaviour
 	public Text ScoreText;
 	public Text ComboText;
 	public Text AccuracyText;
+	public Text BlackLabelText;
+
+	void Awake()
+	{
+		var modeManagerObj = GameObject.Find("ModeManager");
+    	var modeManager = modeManagerObj.GetComponent<modeManager>();
+    	if (modeManager.blackLabelMode)
+    	{
+    		judgmentValue = 0.14f;
+    		BlackLabelText.text = "BLACK LABEL MODE";
+    	}
+    	else
+    	{
+    		judgmentValue = 0.22f;
+    		BlackLabelText.text = "";
+    	}
+	}
 
 	void Start()
 	{

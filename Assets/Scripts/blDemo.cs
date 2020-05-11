@@ -7,6 +7,9 @@ public class blDemo : MonoBehaviour
 {
     public void OnClick()
     {
-    	SceneManager.LoadScene("level_select_bl", LoadSceneMode.Single);
+    	var modeManagerObj = GameObject.Find("ModeManager");
+    	var modeManager = modeManagerObj.GetComponent<modeManager>();
+    	modeManager.blackLabelMode = true;
+    	SceneManager.LoadScene("level_select", LoadSceneMode.Single);
     }
 }
