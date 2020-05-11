@@ -10,10 +10,10 @@ public class LS_input : MonoBehaviour
     public Texture twb_ls;
     public Texture treasure_ls;
 
-    List<string> songs = new List<string>();
-    List<Texture> songImgs = new List<Texture>();
+    public List<string> songs = new List<string>();
+    public List<Texture> songImgs = new List<Texture>();
     
-    int cursor = 0;
+    public int cursor = 0;
 
     void Awake()
     {
