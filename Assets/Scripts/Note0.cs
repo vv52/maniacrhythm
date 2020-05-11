@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Note0 : MonoBehaviour
 {
-    float BeatsShownInAdvance = 4.0f;
+    float BeatsShownInAdvance = 2.0f;   // NOTE SPEED
     float current = 0.0f;
     Vector3 SpawnPos = new Vector3(137.432f, 1100.225f, 0.0f);
     Vector3 RemovePos = new Vector3(137.432f, 254.831f, 0.0f);
