@@ -4,7 +4,7 @@
  |     Created by vv52     |
  \-------------------------/
 
-Controls:
+          Controls
 
 	Main Menu:
 	----------

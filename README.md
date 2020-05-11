@@ -41,6 +41,13 @@ Audio reactive background graphics for songs will be constructed in and rendered
 
 ## Changelog
 
+As of alpha v0.1.3
+1. Fixed bug where accuracy, score, and a few internal variables did not properly reset after a song and carried over to the next.
+2. Tweaked normal mode judgement value (0.2 -> 0.22)
+3. Improved CsvToMrc functionality (v0.1 -> v0.2)
+	1. Added option to redo last operation with same input and output destination, useful for testing changes to a chart in progress
+	2. Added option to do a new operation so that multiple operations can be perfeormed without needing to restart the program
+
 As of alpha v0.1.2
 1. csvToMrc app for converting \*.csv files to  \*.txt files formatted in my proprietary MRC format. This enables charting in Excel / Google Sheets which is much simpler given it's column-based arithmetic features
 2. Fixed bug that caused accuracy to go negative sometimes if no notes are hit at the beginning of a song.
