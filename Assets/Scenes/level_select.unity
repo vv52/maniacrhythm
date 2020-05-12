@@ -300,6 +300,7 @@ MonoBehaviour:
   lsGraphic: {fileID: 17368088}
   twb_ls: {fileID: 2800000, guid: bcf95931c5255374b96ef595a0eae420, type: 3}
   treasure_ls: {fileID: 2800000, guid: d1da2397a04b73146baa2754e6de75da, type: 3}
+  aasb_ls: {fileID: 2800000, guid: 446eaa2d83300ba4082afe8e81aa395f, type: 3}
   songs: []
   songImgs: []
   cursor: 0

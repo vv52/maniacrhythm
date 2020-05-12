@@ -2,7 +2,10 @@
 
 !["Maniac Rhythm Title / Splash Screen"](maniacsplash.jpg)
 
-Current Version: alpha v0.1
+Current Version: alpha v0.1.4
+
+Download link: [coming soon]
+Lite build (static backgrounds): [coming soon]
 
 ## What is it?
 Maniac Rhythm is a bemani-style rhythm game made in Unity utilizing techniques discussed by Yu Chao and Graham Tattersall on Gamasutra.
@@ -23,7 +26,34 @@ Audio reactive background graphics for songs will be constructed in and rendered
 
 ## Gameplay Demo
 
+Footage is from alpha v0.1, curent alpha v0.1.4 is improved.
+
 [![ManiacRhythm alpha v0.1 demo](http://img.youtube.com/vi/xYpBw4DtNRI/0.jpg)](http://www.youtube.com/watch?v=xYpBw4DtNRI "ManiacRhythm alpha v0.1 demo")
+
+## Controls
+
+	Main Menu:
+	----------
+	Mouse / LMB - Select mode
+
+	Song Select:
+	------------
+	Mouse - Move selection
+	D - Move selection left
+	F - Return to main menu
+	J - Select
+	L - Move selection right
+
+	In Game:
+	--------
+	D - Note 0
+	F - Note 1
+	J - Note 2
+	K - Note 3
+
+	Results:
+	--------
+	F - Return to song select
 
 ## Goals
 1. Four note lanes with fair judgement
@@ -40,6 +70,12 @@ Audio reactive background graphics for songs will be constructed in and rendered
 7. Visual charting engine
 
 ## Changelog
+
+As of alpha v0.1.4
+1. Added demo chart for "As Above So Below" by Temenigru
+2. Doubled note scroll speed for legibility
+3. Changed the way BL mode is handled internally, added BLACK LABEL MODE text in corner of gameplay when mode is active, and slightly loosened BL judgement
+4. Added mouse navigation to song select screen
 
 As of alpha v0.1.3
 1. Fixed bug where accuracy, score, and a few internal variables did not properly reset after a song and carried over to the next.

@@ -274,6 +274,48 @@ May 11:
 
 Finalization of alpha v0.1.3 build. Adjusted judgement value from 0.2 to 0.22, changed formatting of instructions slightly, and updated the changelog to reflect the bug fixes and tweaks since the last version.
 
+--
+
+Added partial dev diary, currently just the majority of Github commit comments. Also updated todo.
+
+Doubled note scroll speed for legibility, this will eventually be adjustable from song select screen (right now default is 2x = 2.0f, previously was 1x = 4.0f)
+
+Added note graphic for "glide" note, this will be a note that does not have to be hit in time, the only requirement is that the correct key is held down when it hits the judgement bar
+
+Created Note prefabs for "glide" versions of normal notes, basically just the same thing with a different icon, as the actual difference will be handled by the judgement check (yet to be implemented)
+
+--
+
+added ModeManager object to title screen to manage mode and song speed globally, this allows me to remove duplicate "_bl" versions of scenes as Conductor now pulls the judgement value directly from the modeManager.
+
+I could probably fold scoreSaver and modeManager into a gameManager class but it doesn't really affect function to keep them separate and it makes more sense to split them to me (as their purposes are quite different, even if they are similar classes)
+
+As of right now, song speed is still not variable, however it shouldn't be difficult to implement once I've decided how to handle it from a UI perspective.
+
+--
+
+Added mouse navigation to song select screen (left and right movement)
+
 ## Overall Reflection ##
 
+This project represents a breakthrough moment in my CS education. I am usually an autodidact and sometimes have trouble with the format of school because of it, it is more difficult for me to learn when not primarily self-guided. This project was my chance this semester to push myself and force myself out of my comfort zone. I don't think I would have succeeded in making something with this level of polish and playability if I wasn't super stoked on the idea, so I'm really glad I chose the route I did. I feel like I say this every time, but I've certainly learned more about C# and Unity throughout this process than I have in previous assignments.
+
+The beginning was relatively simple as I had a small amount of starter code to build my ideas and implementation around, even though I began diverging from my original ideas pretty quickly. The most core functionality of the engine, note spawning and checking, was the hardest part (as well as syncing the video backgrouds a bit later on). Getting some input from Adam on the first two check-ins definitely set me up for success, as it allowed me to move psat the two points at which I felt I was beating my head into a wall.
+
+After I came back to the project from nearly a week hiatus midway through, however, it was mostly smooth sailing the rest of the way out. I hit my stride and was balancing my inspiration and drive to work on the project with actually figuring out how to implement things in a reasonable way (and also bug test).
+
+One of my favorite takeaways from this was the StreamReader class in C#, which closely mirrors my favorite tool in C++, the iStringStream and ifStream classes.
+
+The best part of this project for me, however, is now having something to work on over the summer and keep my CS skills sharp. The skills I've learned in Unity will certianly help me with some other projects I have been putting off until I was out of school, which I hope will further my independent CS education, putting me in the best possible position to tackle next semester.
+
 ## Media ##
+
+I had originally planned on including a download of a playable build of the game here as well as one without the video to significantly cut down on the file size and also allow it to run better on machines with less power. That is not happening because I didn't get a chance to move my charts into the Resources or StreamingAssets folder and reconfigure my code. If the Unity project is downloaded and the video player is disabled in "twb", "treasure", and "aasb" scenes it should run fine without video.
+
+Here's a video of the gameplay when built into the project folder:
+
+[![](http://img.youtube.com/vi/GTfaaq-FCPU/0.jpg)](http://www.youtube.com/watch?v=GTfaaq-FCPU "ManiacRhythm alpha v0.1.4 [standalone]")
+
+And here's a video of the game running in Unity (apologies for the choppy framerate, recording a game running in Unity is quite resource intensive):
+
+[![](http://img.youtube.com/vi/Jlaw9-Kd0GQ/0.jpg)](http://www.youtube.com/watch?v=Jlaw9-Kd0GQ "ManiacRhythm alpha v0.1.4 [running in Unity]")

@@ -12,20 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/level_select.unity
     guid: cf7c0987704dea5489f0ac47dc92db88
   - enabled: 1
-    path: Assets/Scenes/level_select_bl.unity
-    guid: 358f233d33acec6479d3667f7970d437
-  - enabled: 1
     path: Assets/Scenes/twb.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/twb_bl.unity
-    guid: d51d0ab9ac65a6449b252bf631578d41
   - enabled: 1
     path: Assets/Scenes/treasure.unity
     guid: 632dd6c19f50573448b8614c7ba8a806
   - enabled: 1
-    path: Assets/Scenes/treasure_bl.unity
-    guid: ed2b86da185fd7646a703222f3bba48f
+    path: Assets/Scenes/aasb.unity
+    guid: d55efeea3dc290d438cf3887587fd096
   - enabled: 1
     path: Assets/Scenes/results.unity
     guid: 2d8bf131132935b488c8f9aea0daaeeb

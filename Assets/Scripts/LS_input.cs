@@ -9,6 +9,7 @@ public class LS_input : MonoBehaviour
     public RawImage lsGraphic;
     public Texture twb_ls;
     public Texture treasure_ls;
+    public Texture aasb_ls;
 
     public List<string> songs = new List<string>();
     public List<Texture> songImgs = new List<Texture>();
@@ -19,8 +20,10 @@ public class LS_input : MonoBehaviour
     {
         songs.Add("twb");
         songs.Add("treasure");
+        songs.Add("aasb");
         songImgs.Add(twb_ls);
         songImgs.Add(treasure_ls);
+        songImgs.Add(aasb_ls);
     }
 
     void Update()
