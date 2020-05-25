@@ -208,7 +208,7 @@ public class Conductor : MonoBehaviour
 
 	void loadChart()
 	{	
-		using (StreamReader readChart = File.OpenText(chartFilename))
+		using (StreamReader readChart = File.OpenText(Application.dataPath + "/StreamingAssets/" + chartFilename))
 		{
 			while (!readChart.EndOfStream)
 			{
@@ -343,6 +343,10 @@ public class Conductor : MonoBehaviour
     	var scoreSaverObj = GameObject.Find("ScoreSaver");
     	var scoreSaver = scoreSaverObj.GetComponent<scoreSaver>();
     	scoreSaver.playerScore = Convert.ToInt32(score);
+    	if (accuracy > 99.0f && accuracy < 100.0f)
+    	{
+    		accuracy = 99.0f;
+    	}
     	scoreSaver.playerAccuracy = Convert.ToInt32(accuracy);
    		scoreSaver.playerMaxCombo = maxCombo;
     	if (accuracy == 100.0f)

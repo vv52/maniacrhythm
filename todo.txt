@@ -1,4 +1,4 @@
-create game manager object to hold judgement value and note speed w/ persistence
+edit game manager object to hold note speed w/ persistence
 
 edit loadChart() in Conductor
 	read bpm, start delay, etc. from charts
@@ -26,18 +26,6 @@ rethink 10b mode -> 8b mode(?)
 ---------------
 
 MRC / note ideas:
-
-change from
-
-0.0 t f f f
-
-to
-
-0.0 t . . .
-
-requires no change as any placeholder other than ',' will work, 'f' is not very legible and makes little sense in retrospect
-
---
 
 add sixth column as such
 
@@ -89,9 +77,13 @@ Final idea(??):
 
 very readable, probably (read: hopefully) simple to implement
 
----------------
+------------------------------------------------------
 
 COMPLETE:
+
+fix chart pathways in code so that game can build properly
+
+create game manager object to hold judgement value and note speed w/ persistence
 
 convert main() of csvToMrc to a function to allow repeat conversions
 
@@ -101,3 +93,15 @@ build custom *.csv to *.txt converter
 	prompt excel *.csv
 	convert to MRC (proprietary format)
 	save as *.txt
+
+change from
+
+0.0 t f f f
+
+to
+
+0.0 t . . .
+
+requires no change as any placeholder other than ',' will work, 'f' is not very legible and makes little sense in retrospect
+
+--
