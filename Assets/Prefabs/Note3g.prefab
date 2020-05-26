@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6269348331524814989}
   - component: {fileID: 6285447556558268620}
   - component: {fileID: 6353131434318257207}
-  - component: {fileID: 7428745582394679549}
+  - component: {fileID: 104187764814798704}
   m_Layer: 5
   m_Name: Note3g
   m_TagString: Untagged
@@ -101,7 +101,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7428745582394679549
+--- !u!114 &104187764814798704
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,6 +110,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8207023154393647196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ea63b42f0be5664584929ebf00fa5c9, type: 3}
+  m_Script: {fileID: 11500000, guid: f74dfe50de504304fa7a50828a199b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

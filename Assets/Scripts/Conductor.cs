@@ -55,10 +55,10 @@ public class Conductor : MonoBehaviour
 	int numNotesPassed = 0;
 
 	//this is to keep track of the number of notes hit
-	int numNotesHit = 0;
+	public int numNotesHit = 0;
 
 	//this is to keep track of current combo
-	int currentCombo = 0;
+	public int currentCombo = 0;
 
 	//this is to keep track of max combo
 	public int maxCombo = 0;
@@ -70,15 +70,17 @@ public class Conductor : MonoBehaviour
 	public float accuracy = 100.0f;
 
 	//keeps track of mania
-	int maniaMultiplier = 1;
+	public int maniaMultiplier = 1;
+
+	int numGlides = 0;
 
 	float currentNotePos;
 	bool[] currentNoteBoolArray = new bool[] { false, false, false, false };
 	float lastPress = 0;
 
-	bool lastNoteHit = false;
+	public bool lastNoteHit = false;
 
-	List<Notes> currentNoteCheck = new List<Notes>();
+	public List<Notes> currentNoteCheck = new List<Notes>();
 
 	public string chartFilename;
 
@@ -158,6 +160,7 @@ public class Conductor : MonoBehaviour
 		    {
 		    	if (notes[nextIndex].isGlide == true)
 		    	{
+		    		numGlides++;
 		    		GameObject newNote0g = Instantiate(Note0g, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    	}
 		    	else
@@ -169,6 +172,7 @@ public class Conductor : MonoBehaviour
 		    {
 		    	if (notes[nextIndex].isGlide == true)
 		    	{
+		    		numGlides++;
 		    		GameObject newNote1g = Instantiate(Note1g, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    	}
 		    	else
@@ -180,6 +184,7 @@ public class Conductor : MonoBehaviour
 		    {
 		    	if (notes[nextIndex].isGlide == true)
 		    	{
+		    		numGlides++;
 		    		GameObject newNote2g = Instantiate(Note2g, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    	}
 		    	else
@@ -191,6 +196,7 @@ public class Conductor : MonoBehaviour
 		    {
 		    	if (notes[nextIndex].isGlide == true)
 		    	{
+		    		numGlides++;
 		    		GameObject newNote3g = Instantiate(Note3g, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    	}
 		    	else
@@ -207,7 +213,8 @@ public class Conductor : MonoBehaviour
 
 		if (currentNoteCheck.Count > 0)
 		{
-			if (songPositionInBeats > (currentNoteCheck[0].pos + judgmentValue))
+			if (songPositionInBeats > (currentNoteCheck[0].pos + judgmentValue)
+				&& currentNoteCheck[0].isGlide == false)
 			{
 				numNotesPassed++;
 				if (lastPress < (currentNoteCheck[0].pos - judgmentValue) ||
@@ -281,7 +288,8 @@ public class Conductor : MonoBehaviour
     	float pressTime = songPositionInBeats;
     	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
-    		&& currentNoteCheck[0].notes[0] == true)
+    		&& currentNoteCheck[0].notes[0] == true
+    		&& currentNoteCheck[0].isGlide == false)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
@@ -292,7 +300,10 @@ public class Conductor : MonoBehaviour
     		lastPress = pressTime;
     	}
 
-    	checkCombo();
+    	if (currentNoteCheck[0].isGlide == false)
+    	{
+    		checkCombo();
+    	}
     }
 
     public void note1Pressed()
@@ -300,7 +311,8 @@ public class Conductor : MonoBehaviour
 		float pressTime = songPositionInBeats;
     	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
-    		&& currentNoteCheck[0].notes[1] == true)
+    		&& currentNoteCheck[0].notes[1] == true
+    		&& currentNoteCheck[0].isGlide == false)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
@@ -311,7 +323,10 @@ public class Conductor : MonoBehaviour
     		lastPress = pressTime;
     	}
 
-    	checkCombo();
+    	if (currentNoteCheck[0].isGlide == false)
+    	{
+    		checkCombo();
+    	}
     }
 
     public void note2Pressed()
@@ -319,7 +334,8 @@ public class Conductor : MonoBehaviour
     	float pressTime = songPositionInBeats;
     	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
-    		&& currentNoteCheck[0].notes[2] == true)
+    		&& currentNoteCheck[0].notes[2] == true
+    		&& currentNoteCheck[0].isGlide == false)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
@@ -330,7 +346,10 @@ public class Conductor : MonoBehaviour
     		lastPress = pressTime;
     	}
 
-    	checkCombo();
+    	if (currentNoteCheck[0].isGlide == false)
+    	{
+    		checkCombo();
+    	}
     }
 
     public void note3Pressed()
@@ -338,7 +357,8 @@ public class Conductor : MonoBehaviour
     	float pressTime = songPositionInBeats;
     	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
-    		&& currentNoteCheck[0].notes[3] == true)
+    		&& currentNoteCheck[0].notes[3] == true
+    		&& currentNoteCheck[0].isGlide == false)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
@@ -349,10 +369,13 @@ public class Conductor : MonoBehaviour
     		lastPress = pressTime;
     	}
 
-    	checkCombo();
+    	if (currentNoteCheck[0].isGlide == false)
+    	{
+    		checkCombo();
+    	}
     }
 
-    void checkCombo()
+    public void checkCombo()
     {
     	if (lastNoteHit)
     	{
