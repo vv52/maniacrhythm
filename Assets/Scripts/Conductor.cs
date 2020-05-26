@@ -87,6 +87,11 @@ public class Conductor : MonoBehaviour
 	public GameObject Note2;
 	public GameObject Note3;
 
+	public GameObject Note0g;
+	public GameObject Note1g;
+	public GameObject Note2g;
+	public GameObject Note3g;
+
 	public GameObject Canvas;
 
 	public GameObject ScoreSaver;
@@ -151,19 +156,47 @@ public class Conductor : MonoBehaviour
 
 		    if (notes[nextIndex].notes[0] == true)
 		    {
-		    	GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	if (notes[nextIndex].isGlide == true)
+		    	{
+		    		GameObject newNote0g = Instantiate(Note0g, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
+		    	else
+		    	{
+		    		GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
 		    }
 		    if (notes[nextIndex].notes[1] == true)
 		    {
-		    	GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	if (notes[nextIndex].isGlide == true)
+		    	{
+		    		GameObject newNote1g = Instantiate(Note1g, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
+		    	else
+		    	{
+		    		GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
 		    }
 		    if (notes[nextIndex].notes[2] == true)
 		    {
-		    	GameObject newNote2 = Instantiate(Note2, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	if (notes[nextIndex].isGlide == true)
+		    	{
+		    		GameObject newNote2g = Instantiate(Note2g, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
+		    	else
+		    	{
+		    		GameObject newNote2 = Instantiate(Note2, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
 		    }
 		    if (notes[nextIndex].notes[3] == true)
 		    {
-		    	GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	if (notes[nextIndex].isGlide == true)
+		    	{
+		    		GameObject newNote3g = Instantiate(Note3g, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
+		    	else
+		    	{
+		    		GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
 		    }
 
 		    if (nextIndex < numNotesTotal)
@@ -221,6 +254,11 @@ public class Conductor : MonoBehaviour
 	            	if (data[i] == "t")
 	            	{
 	            		newNote.notes[i - 1] = true;
+	            	}
+	            	if (data[i] == "g")
+	            	{
+	            		newNote.notes[i - 1] = true;
+	            		newNote.isGlide = true;
 	            	}
 	            }
 	            notes.Add(newNote);

@@ -10,6 +10,8 @@ public class Notes
     //which note lanes are active
     public bool[] notes = new bool[] { false, false, false, false };
 
+    public bool isGlide = false;
+
     //constructor
     public Notes (float posBeats, bool[] activeNotes)
     {
