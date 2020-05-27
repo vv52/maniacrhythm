@@ -11,6 +11,7 @@ public class Notes
     public bool[] notes = new bool[] { false, false, false, false };
 
     public bool isGlide = false;
+    public bool isBar = false;
 
     //constructor
     public Notes (float posBeats, bool[] activeNotes)

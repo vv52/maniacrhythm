@@ -94,6 +94,8 @@ public class Conductor : MonoBehaviour
 	public GameObject Note2g;
 	public GameObject Note3g;
 
+	public GameObject NoteBar;
+
 	public GameObject Canvas;
 
 	public GameObject ScoreSaver;
@@ -162,6 +164,10 @@ public class Conductor : MonoBehaviour
 		    	{
 		    		numGlides++;
 		    		GameObject newNote0g = Instantiate(Note0g, GameObject.FindGameObjectWithTag("Canvas").transform);
+		    	}
+		    	else if (notes[nextIndex].isBar == true)
+		    	{
+		    		GameObject newNoteBar = Instantiate(NoteBar, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    	}
 		    	else
 		    	{
@@ -266,6 +272,11 @@ public class Conductor : MonoBehaviour
 	            	{
 	            		newNote.notes[i - 1] = true;
 	            		newNote.isGlide = true;
+	            	}
+	            	if (data[i] == "h")
+	            	{
+	            		newNote.notes[0] = true;
+	            		newNote.isBar = true;
 	            	}
 	            }
 	            notes.Add(newNote);
@@ -372,6 +383,24 @@ public class Conductor : MonoBehaviour
     	if (currentNoteCheck[0].isGlide == false)
     	{
     		checkCombo();
+    	}
+    }
+
+    public void noteBarPressed()
+    {
+    	float pressTime = songPositionInBeats;
+    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
+    		&& currentNoteCheck[0].isBar == true)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (10 * maniaMultiplier);
+    		checkCombo();
+    	}
+    	if (pressTime > lastPress)
+    	{
+    		lastPress = pressTime;
     	}
     }
 

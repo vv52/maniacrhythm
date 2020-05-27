@@ -1108,6 +1108,7 @@ MonoBehaviour:
   Note1g: {fileID: 3342804858052516674, guid: 27343e64548f36e4b9c55c0b9bcee38b, type: 3}
   Note2g: {fileID: 5856821477191628266, guid: 4c0c81e091adf3e4bb1f0d7da958d84e, type: 3}
   Note3g: {fileID: 8207023154393647196, guid: d42c2bfaa5362804a8262b48e3419a66, type: 3}
+  NoteBar: {fileID: 3769312016663814876, guid: afd5cb2cba902c140bcda8fadbaa41fc, type: 3}
   Canvas: {fileID: 648911304}
   ScoreSaver: {fileID: 0}
   ScoreText: {fileID: 975710748}

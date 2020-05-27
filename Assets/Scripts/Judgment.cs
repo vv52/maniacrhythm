@@ -25,5 +25,9 @@ public class Judgment : MonoBehaviour
         {
         	conductor.note3Pressed();
         }
+        if (Input.GetKeyDown("space"))
+        {
+            conductor.noteBarPressed();
+        }
     }
 }
