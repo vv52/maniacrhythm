@@ -12,6 +12,8 @@ public class NoteBar : MonoBehaviour
     Conductor conductor;
     GameObject songManager;
 
+    //bool isHit = false;
+
     void Awake()
     {
         songManager = GameObject.FindWithTag("SongManager");
@@ -30,9 +32,30 @@ public class NoteBar : MonoBehaviour
 
         this.transform.position = new Vector3(SpawnPos.x, currentYValue, 0.0f);
 
+        /*
+        if (Input.GetKeyDown("space") && transform.position.y <= 254.213 && transform.position.y >= 250.787)
+        {
+            conductor.numNotesHit++;
+            conductor.lastNoteHit = true;
+            conductor.score += (10 * conductor.maniaMultiplier);
+            isHit = true;
+        }
+
         if(transform.position.y < 250.787)
         {
+            if (!isHit)
+            {
+                conductor.lastNoteHit = false;
+                conductor.currentNoteCheck.RemoveAt(0);
+                conductor.checkCombo();
+            }
             Destroy(gameObject);    
+        }
+        */
+
+        if (transform.position.y < 250.787f)
+        {
+            Destroy(gameObject);
         }
 	}
 }

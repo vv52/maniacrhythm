@@ -76,7 +76,7 @@ public class Conductor : MonoBehaviour
 
 	float currentNotePos;
 	bool[] currentNoteBoolArray = new bool[] { false, false, false, false };
-	float lastPress = 0;
+	public float lastPress = 0;
 
 	public bool lastNoteHit = false;
 
@@ -158,16 +158,17 @@ public class Conductor : MonoBehaviour
 			notes[nextIndex].notes.CopyTo(currentNoteBoolArray, 0);
 			currentNoteCheck.Add(new Notes(currentNotePos, currentNoteBoolArray));
 
-		    if (notes[nextIndex].notes[0] == true)
+			if (notes[nextIndex].isBar == true)
+	    	{
+	    		GameObject newNoteBar = Instantiate(NoteBar, GameObject.FindGameObjectWithTag("Canvas").transform);
+	    		currentNoteCheck[currentNoteCheck.Count - 1].isBar = true;
+	    	}
+	    	else if (notes[nextIndex].notes[0] == true)
 		    {
 		    	if (notes[nextIndex].isGlide == true)
 		    	{
 		    		numGlides++;
 		    		GameObject newNote0g = Instantiate(Note0g, GameObject.FindGameObjectWithTag("Canvas").transform);
-		    	}
-		    	else if (notes[nextIndex].isBar == true)
-		    	{
-		    		GameObject newNoteBar = Instantiate(NoteBar, GameObject.FindGameObjectWithTag("Canvas").transform);
 		    	}
 		    	else
 		    	{
@@ -275,7 +276,7 @@ public class Conductor : MonoBehaviour
 	            	}
 	            	if (data[i] == "h")
 	            	{
-	            		newNote.notes[0] = true;
+	            		newNote.notes[i - 1] = true;
 	            		newNote.isBar = true;
 	            	}
 	            }
@@ -396,12 +397,12 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
-    		checkCombo();
     	}
     	if (pressTime > lastPress)
     	{
     		lastPress = pressTime;
     	}
+    	checkCombo();
     }
 
     public void checkCombo()

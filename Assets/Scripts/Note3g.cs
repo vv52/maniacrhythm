@@ -39,6 +39,10 @@ public class Note3g : MonoBehaviour
                 conductor.lastNoteHit = true;
                 conductor.score += (1 * conductor.maniaMultiplier);
             }
+            else
+            {
+                conductor.lastNoteHit = false;
+            }
             conductor.currentNoteCheck.RemoveAt(0);
             conductor.checkCombo();
             Destroy(gameObject);    
