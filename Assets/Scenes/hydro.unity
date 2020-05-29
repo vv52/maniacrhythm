@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   songBpm: 127
-  songEnd: 200
+  songEnd: 400
   judgmentValue: 0.22
   secPerBeat: 0.47244096
   songPosition: 0
@@ -1091,7 +1091,7 @@ MonoBehaviour:
   firstBeatOffset: 3.8
   beatsShownInAdvance: 8
   score: 0
-  numNotesTotal: 153
+  numNotesTotal: 262
   numNotesHit: 0
   currentCombo: 0
   maxCombo: 0

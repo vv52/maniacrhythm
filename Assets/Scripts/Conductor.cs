@@ -265,6 +265,11 @@ public class Conductor : MonoBehaviour
 				Notes newNote = new Notes(posBeats);
 				for (int i = 1; i < 5; i++)
 	            {
+	            	if (data[i] == "h")
+	            	{
+	            		newNote.notes[i - 1] = false;
+	            		newNote.isBar = true;
+	            	}
 	            	if (data[i] == "t")
 	            	{
 	            		newNote.notes[i - 1] = true;
@@ -273,11 +278,6 @@ public class Conductor : MonoBehaviour
 	            	{
 	            		newNote.notes[i - 1] = true;
 	            		newNote.isGlide = true;
-	            	}
-	            	if (data[i] == "h")
-	            	{
-	            		newNote.notes[i - 1] = true;
-	            		newNote.isBar = true;
 	            	}
 	            }
 	            notes.Add(newNote);

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6285447556558268620}
   - component: {fileID: 6353131434318257207}
   - component: {fileID: 7428745582394679549}
+  - component: {fileID: 2142793633779381898}
   m_Layer: 5
   m_Name: Note3
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,3 +114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ea63b42f0be5664584929ebf00fa5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &2142793633779381898
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207023154393647196}
+  m_Enabled: 1
+  m_SortingLayerID: -389222019
+  m_SortingLayer: -2
+  m_SortingOrder: 0

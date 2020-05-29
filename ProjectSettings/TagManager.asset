@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Canvas
   - SongManager
+  - Note
+  - Glide
+  - Hammer
   layers:
   - Default
   - TransparentFX
@@ -15,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Notes
+  - Hammer
   - 
   - 
   - 
@@ -40,6 +43,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Notes
+    uniqueID: 3905745277
+    locked: 0
+  - name: Hammer
+    uniqueID: 49181133
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

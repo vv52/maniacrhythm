@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6285447556558268620}
   - component: {fileID: 6353131434318257207}
   - component: {fileID: 104187764814798704}
+  - component: {fileID: -8572277130986163240}
   m_Layer: 5
   m_Name: Note3g
-  m_TagString: Untagged
+  m_TagString: Glide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,3 +114,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74dfe50de504304fa7a50828a199b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!210 &-8572277130986163240
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8207023154393647196}
+  m_Enabled: 1
+  m_SortingLayerID: -389222019
+  m_SortingLayer: -2
+  m_SortingOrder: 0
