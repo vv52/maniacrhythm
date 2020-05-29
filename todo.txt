@@ -1,3 +1,7 @@
+FIX HAMMERS ON 1,2,3.. SEE 0 FIX
+
+FIX GLIDE WEIRDNESS WITH COMBO
+
 edit game manager object to hold note speed w/ persistence
 
 edit loadChart() in Conductor
