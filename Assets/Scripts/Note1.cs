@@ -8,7 +8,8 @@ public class Note1 : MonoBehaviour
     float current = 0.0f;
     Vector3 SpawnPos = new Vector3(239.697f, 1100.225f, 0.0f);
     //Vector3 RemovePos = new Vector3(239.697f, 254.831f, 0.0f);
-    Vector3 RemovePos = new Vector3(137.432f, 252.5f, 0.0f);
+    //Vector3 RemovePos = new Vector3(137.432f, 252.5f, 0.0f);
+    Vector3 RemovePos = new Vector3(137.432f, 250f, 0.0f);
     Conductor conductor;
     GameObject songManager;
 

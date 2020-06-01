@@ -1,12 +1,38 @@
-FIX HAMMERS ON 1,2,3.. SEE 0 FIX
+FIX TIMING (hitting notes exactly on leads to misses often)
+	this could be handled twofold
+		1: turn note sprites off after jugdement bar but let
+			them be hit still, remove lower than note.removePos
+		2: maybe in conjuction, maybe on it's own:
+			add music delay that isn't factored into game math
+			2-5 milliseconds off from calculation, maybe create
+				lag setting
 
-FIX GLIDE WEIRDNESS WITH COMBO
+add sound effect or visual cue (or both) when note key is pressed
+	also: options menu sound effects and track previews etc.
+
+FIX HAMMERS ON 1,2,3.. SEE 0 FIX
+	(maybe: always spawn bars before other notes on the same beat
+		EG: 0.0 h . . .
+			0.0 t . . t
+
+		as opposed to:
+			0.0 t h . t
+
+		theoretically this should fix this interaction)
+
+FIX GLIDE WEIRDNESS WITH COMBO (not sure of state rn)
 
 edit game manager object to hold note speed w/ persistence
 
 edit loadChart() in Conductor
 	read bpm, start delay, etc. from charts
 	potentially move to new script(?) loadChart.cs
+	(maybe: create separate info files for charts
+		and then create a loadChartInfo() method
+		EG: aasb.mrc + aasb.mrci
+
+		as opposed to:
+			aasb.mrc or aasb.txt)
 
 >	implement custom file extension *.mrc for charts(?)
 		NOTE: tested, this works fine
@@ -15,11 +41,21 @@ edit loadChart() in Conductor
 
 consolidate note*Pressed() methods into notePressed(int noteNum)
 	this would be moved into Judgement.cs potentially
+	(thought: separate functions might actually be more efficient
+		and prevent unwanted issues not entirely dissimilar to
+		difficulties with pipelining, IE the need for simultaneous
+		access to data)
 
 move judgement checks to Judgement.cs(?)
 
 move note spawning to new script(?) noteSpawner.cs
 
+
+TRUE mode:
+	
+	7B mode but 6B + hammer + slides + glides
+
+//
 7b mode(?)
 	3b (s, d, f) + 1b (g or h) + 3b (j, k, l)
 

@@ -298,7 +298,17 @@ public class Conductor : MonoBehaviour
 	public void note0Pressed()
     {
     	float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
+    		&& currentNoteCheck[0].notes[0] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (15 * maniaMultiplier);
+    		//text: MANIAC
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[0] == true
     		&& currentNoteCheck[0].isGlide == false)
@@ -306,6 +316,17 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//text: GREAT
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f))
+    		&& currentNoteCheck[0].notes[0] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (5 * maniaMultiplier);
+    		//text: OK
     	}
     	if (pressTime > lastPress)
     	{
@@ -321,7 +342,17 @@ public class Conductor : MonoBehaviour
     public void note1Pressed()
     {
 		float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
+    		&& currentNoteCheck[0].notes[1] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (15 * maniaMultiplier);
+    		//text: MANIAC
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[1] == true
     		&& currentNoteCheck[0].isGlide == false)
@@ -329,6 +360,17 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//text: GREAT
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f))
+    		&& currentNoteCheck[0].notes[1] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (5 * maniaMultiplier);
+    		//text: OK
     	}
     	if (pressTime > lastPress)
     	{
@@ -344,7 +386,17 @@ public class Conductor : MonoBehaviour
     public void note2Pressed()
     {
     	float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
+    		&& currentNoteCheck[0].notes[2] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (15 * maniaMultiplier);
+    		//text: MANIAC
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[2] == true
     		&& currentNoteCheck[0].isGlide == false)
@@ -352,6 +404,17 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//text: GREAT
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f))
+    		&& currentNoteCheck[0].notes[2] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (5 * maniaMultiplier);
+    		//text: OK
     	}
     	if (pressTime > lastPress)
     	{
@@ -367,7 +430,17 @@ public class Conductor : MonoBehaviour
     public void note3Pressed()
     {
     	float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
+    		&& currentNoteCheck[0].notes[3] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (15 * maniaMultiplier);
+    		//text: MANIAC
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].notes[3] == true
     		&& currentNoteCheck[0].isGlide == false)
@@ -375,6 +448,17 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//text: GREAT
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f))
+    		&& currentNoteCheck[0].notes[3] == true
+    		&& currentNoteCheck[0].isGlide == false)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (5 * maniaMultiplier);
+    		//text: OK
     	}
     	if (pressTime > lastPress)
     	{
@@ -390,13 +474,32 @@ public class Conductor : MonoBehaviour
     public void noteBarPressed()
     {
     	float pressTime = songPositionInBeats;
-    	if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
+    	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
+    		&& currentNoteCheck[0].isBar == true)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (15 * maniaMultiplier);
+    		//text: MANIAC
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
     		&& pressTime < (currentNoteCheck[0].pos + judgmentValue)
     		&& currentNoteCheck[0].isBar == true)
     	{
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//text: GREAT
+    	}
+    	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
+    		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f))
+    		&& currentNoteCheck[0].isBar == true)
+    	{
+    		numNotesHit++;
+    		lastNoteHit = true;
+    		score += (5 * maniaMultiplier);
+    		//text: OK
     	}
     	if (pressTime > lastPress)
     	{

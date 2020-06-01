@@ -7,7 +7,8 @@ public class NoteBar : MonoBehaviour
     float BeatsShownInAdvance = 2.0f;   // NOTE SPEED
     float current = 0.0f;
     Vector3 SpawnPos = new Vector3(287.611f, 1100.225f, -1.00f);
-    Vector3 RemovePos = new Vector3(287.611f, 252.5f, -1.00f);
+    //Vector3 RemovePos = new Vector3(287.611f, 252.5f, -1.00f);
+    Vector3 RemovePos = new Vector3(137.432f, 250f, -1.00f);
     Conductor conductor;
     GameObject songManager;
 
