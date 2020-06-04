@@ -1,3 +1,7 @@
+conductor is a mess, optimize and remove unneeded variables etc.
+	the best time to do this would be after finishing most of the
+	items on this list
+
 FIX TIMING (hitting notes exactly on leads to misses often)
 	this could be handled twofold
 		1: turn note sprites off after jugdement bar but let
@@ -6,6 +10,8 @@ FIX TIMING (hitting notes exactly on leads to misses often)
 			add music delay that isn't factored into game math
 			2-5 milliseconds off from calculation, maybe create
 				lag setting
+
+		update: find something productive to do with lag setting
 
 add sound effect or visual cue (or both) when note key is pressed
 	also: options menu sound effects and track previews etc.

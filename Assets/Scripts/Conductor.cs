@@ -19,6 +19,9 @@ public class Conductor : MonoBehaviour
 	//How early or late in beats can a note be pressed and still register
 	public float judgmentValue;
 
+	//Judgement offset from music
+	public float lagSetting;
+
 	//The number of seconds for each song beat
 	public float secPerBeat;
 
@@ -148,6 +151,7 @@ public class Conductor : MonoBehaviour
 
 	    //determine how many seconds since the song started
 	    songPosition = (float)(AudioSettings.dspTime - dspSongTime - firstBeatOffset);
+	    	// + lagSetting;
 
 	    //determine how many beats since the song started
 	    songPositionInBeats = songPosition / secPerBeat;
@@ -298,6 +302,7 @@ public class Conductor : MonoBehaviour
 	public void note0Pressed()
     {
     	float pressTime = songPositionInBeats;
+    		// + lagSetting;
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[0] == true
@@ -342,6 +347,7 @@ public class Conductor : MonoBehaviour
     public void note1Pressed()
     {
 		float pressTime = songPositionInBeats;
+    		// + lagSetting;
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[1] == true
@@ -386,6 +392,7 @@ public class Conductor : MonoBehaviour
     public void note2Pressed()
     {
     	float pressTime = songPositionInBeats;
+    		// + lagSetting;
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[2] == true
@@ -430,6 +437,7 @@ public class Conductor : MonoBehaviour
     public void note3Pressed()
     {
     	float pressTime = songPositionInBeats;
+    		// + lagSetting;
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[3] == true
@@ -474,6 +482,7 @@ public class Conductor : MonoBehaviour
     public void noteBarPressed()
     {
     	float pressTime = songPositionInBeats;
+    		// + lagSetting;
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].isBar == true)

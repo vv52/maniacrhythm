@@ -1083,15 +1083,16 @@ MonoBehaviour:
   songBpm: 127
   songEnd: 400
   judgmentValue: 0.22
+  lagSetting: 0
   secPerBeat: 0.47244096
   songPosition: 0
   songPositionInBeats: 0
   dspSongTime: 0
   musicSource: {fileID: 1801494573}
-  firstBeatOffset: 3.8
+  firstBeatOffset: 3.83
   beatsShownInAdvance: 8
   score: 0
-  numNotesTotal: 262
+  numNotesTotal: 437
   numNotesHit: 0
   currentCombo: 0
   maxCombo: 0
