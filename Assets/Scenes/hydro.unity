@@ -1092,7 +1092,7 @@ MonoBehaviour:
   firstBeatOffset: 3.83
   beatsShownInAdvance: 8
   score: 0
-  numNotesTotal: 437
+  numNotesTotal: 531
   numNotesHit: 0
   currentCombo: 0
   maxCombo: 0
@@ -1100,6 +1100,7 @@ MonoBehaviour:
   accuracy: 100
   maniaMultiplier: 1
   lastPress: 0
+  lastRelease: 0
   lastNoteHit: 0
   chartFilename: hydro.txt
   Note0: {fileID: 8916330616187449573, guid: 25464aa2bc8fa4748b54f93145505a27, type: 3}
@@ -1110,6 +1111,26 @@ MonoBehaviour:
   Note1g: {fileID: 3342804858052516674, guid: 27343e64548f36e4b9c55c0b9bcee38b, type: 3}
   Note2g: {fileID: 5856821477191628266, guid: 4c0c81e091adf3e4bb1f0d7da958d84e, type: 3}
   Note3g: {fileID: 8207023154393647196, guid: d42c2bfaa5362804a8262b48e3419a66, type: 3}
+  Note0down: {fileID: 7355763456765620565, guid: e22e68af84ee58f4ea808c4d5fea826e,
+    type: 3}
+  Note0up: {fileID: 6019783035689059407, guid: 006b7664e0b634049bdac57fdd6271d5, type: 3}
+  Note1down: {fileID: 2650277135143135843, guid: 40a857a9b49c93942adf856667f4457e,
+    type: 3}
+  Note1up: {fileID: 6653855950321120175, guid: 2db2b5001e8361a42a8562d2d1cdb49e, type: 3}
+  Note2down: {fileID: 1980890584884826804, guid: 31c2ac1471ae4c344aec998532e5404d,
+    type: 3}
+  Note2up: {fileID: 8705961605683945804, guid: 1c911f84af1ebdd4a89099cec76ac0a0, type: 3}
+  Note3down: {fileID: 8535861087138201732, guid: e0d042e29c3bf5847add2c535e4346e5,
+    type: 3}
+  Note3up: {fileID: 2920257754132363270, guid: fb0d1900a1eab9045b01013fad79655d, type: 3}
+  Note0gHold: {fileID: 7215531155334668037, guid: 8f1c7c138cd7f7f40be7a23ec0d45357,
+    type: 3}
+  Note1gHold: {fileID: 7351865487302256714, guid: 7347cd207c3291446b0f0cf1ea911b13,
+    type: 3}
+  Note2gHold: {fileID: 1988180043360347161, guid: c024bdf64bd33b44796dc6dd2fb85f7a,
+    type: 3}
+  Note3gHold: {fileID: 5859324795787340722, guid: 3d4f7e9554687ad4c9d8390eea7b065e,
+    type: 3}
   NoteBar: {fileID: 3769312016663814876, guid: afd5cb2cba902c140bcda8fadbaa41fc, type: 3}
   Canvas: {fileID: 648911304}
   ScoreSaver: {fileID: 0}
