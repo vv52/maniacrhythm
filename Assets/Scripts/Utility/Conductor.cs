@@ -302,6 +302,9 @@ public class Conductor : MonoBehaviour
     {
     	float pressTime = songPositionInBeats;
 
+    	//var noteSound = GameObject.Find("NoteSound");
+        //var fxSound = noteSound.GetComponent<AudioSource>();
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[0] == true
@@ -310,6 +313,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (15 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: MANIAC
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
@@ -320,6 +324,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: GREAT
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
@@ -330,6 +335,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (5 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: OK
     	}
     	if (pressTime > lastPress)
@@ -347,6 +353,9 @@ public class Conductor : MonoBehaviour
     {
 		float pressTime = songPositionInBeats;
 
+		//var noteSound = GameObject.Find("NoteSound");
+        //var fxSound = noteSound.GetComponent<AudioSource>();
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[1] == true
@@ -355,6 +364,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (15 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: MANIAC
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
@@ -365,6 +375,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: GREAT
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
@@ -375,6 +386,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (5 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: OK
     	}
     	if (pressTime > lastPress)
@@ -392,6 +404,9 @@ public class Conductor : MonoBehaviour
     {
     	float pressTime = songPositionInBeats;
 
+    	//var noteSound = GameObject.Find("NoteSound");
+        //var fxSound = noteSound.GetComponent<AudioSource>();
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[2] == true
@@ -400,6 +415,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (15 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: MANIAC
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
@@ -410,6 +426,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: GREAT
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
@@ -420,6 +437,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (5 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: OK
     	}
     	if (pressTime > lastPress)
@@ -437,6 +455,9 @@ public class Conductor : MonoBehaviour
     {
     	float pressTime = songPositionInBeats;
 
+    	//var noteSound = GameObject.Find("NoteSound");
+        //var fxSound = noteSound.GetComponent<AudioSource>();
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[3] == true
@@ -445,6 +466,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (15 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: MANIAC
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
@@ -455,6 +477,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: GREAT
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
@@ -465,6 +488,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (5 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: OK
     	}
     	if (pressTime > lastPress)
@@ -482,6 +506,9 @@ public class Conductor : MonoBehaviour
     {
     	float pressTime = songPositionInBeats;
 
+    	//var noteSound = GameObject.Find("NoteSound");
+        //var fxSound = noteSound.GetComponent<AudioSource>();
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].isBar == true)
@@ -489,6 +516,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (15 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: MANIAC
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - judgmentValue)
@@ -498,6 +526,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (10 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: GREAT
     	}
     	else if (pressTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
@@ -507,6 +536,7 @@ public class Conductor : MonoBehaviour
     		numNotesHit++;
     		lastNoteHit = true;
     		score += (5 * maniaMultiplier);
+    		//fxSound.Play(0);
     		//text: OK
     	}
     	if (pressTime > lastPress)

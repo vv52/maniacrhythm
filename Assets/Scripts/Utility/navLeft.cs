@@ -18,5 +18,9 @@ public class navLeft : MonoBehaviour
             lsInput.cursor -= 1;
         }
         lsInput.lsGraphic.texture = lsInput.songImgs[lsInput.cursor];
+
+        var noteSound = GameObject.Find("NoteSound");
+        var fxSound = noteSound.GetComponent<AudioSource>();
+        fxSound.Play(0);
     }
 }
