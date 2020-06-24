@@ -96,20 +96,6 @@ public class Conductor : MonoBehaviour
 	public GameObject Note2g;
 	public GameObject Note3g;
 
-    public GameObject Note0down;
-    public GameObject Note0up;
-    public GameObject Note1down;
-    public GameObject Note1up;
-    public GameObject Note2down;
-    public GameObject Note2up;
-    public GameObject Note3down;
-    public GameObject Note3up;
-
-    public GameObject Note0gHold;
-    public GameObject Note1gHold;
-    public GameObject Note2gHold;
-    public GameObject Note3gHold;
-
 	public GameObject NoteBar;
 
 	public GameObject Canvas;
@@ -187,23 +173,6 @@ public class Conductor : MonoBehaviour
 		    		GameObject newNote0g = Instantiate(Note0g, GameObject.FindGameObjectWithTag("Canvas").transform);
                     currentNoteCheck[currentNoteCheck.Count - 1].isGlide = true;
 		    	}
-                else if (notes[nextIndex].isGlideHold == true)
-                {
-                    GameObject newNote0gHold = Instantiate(Note0gHold, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isGlideHold = true;
-                }
-		    	else if (notes[nextIndex].isDown == true)
-                {
-                    GameObject NewNote0down = Instantiate(Note0down, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isDown = true;
-                }
-                /*
-                else if (notes[nextIndex].isUp == true)
-                {
-                    GameObject NewNote0up = Instantiate(Note0up, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isUp = true;
-                }
-                */
                 else
 		    	{
 		    		GameObject newNote0 = Instantiate(Note0, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -216,23 +185,6 @@ public class Conductor : MonoBehaviour
                     GameObject newNote1g = Instantiate(Note1g, GameObject.FindGameObjectWithTag("Canvas").transform);
                     currentNoteCheck[currentNoteCheck.Count - 1].isGlide = true;
                 }
-                else if (notes[nextIndex].isGlideHold == true)
-                {
-                    GameObject newNote1gHold = Instantiate(Note1gHold, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isGlideHold = true;
-                }
-                else if (notes[nextIndex].isDown == true)
-                {
-                    GameObject NewNote1down = Instantiate(Note1down, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isDown = true;
-                }
-                /*
-                else if (notes[nextIndex].isUp == true)
-                {
-                    GameObject NewNote1up = Instantiate(Note1up, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isUp = true;
-                }
-                */
                 else
                 {
                     GameObject newNote1 = Instantiate(Note1, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -245,23 +197,6 @@ public class Conductor : MonoBehaviour
                     GameObject newNote2g = Instantiate(Note2g, GameObject.FindGameObjectWithTag("Canvas").transform);
                     currentNoteCheck[currentNoteCheck.Count - 1].isGlide = true;
                 }
-                else if (notes[nextIndex].isGlideHold == true)
-                {
-                    GameObject newNote2gHold = Instantiate(Note2gHold, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isGlideHold = true;
-                }
-                else if (notes[nextIndex].isDown == true)
-                {
-                    GameObject NewNote2down = Instantiate(Note2down, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isDown = true;
-                }
-                /*
-                else if (notes[nextIndex].isUp == true)
-                {
-                    GameObject NewNote2up = Instantiate(Note2up, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isUp = true;
-                }
-                */
                 else
                 {
                     GameObject newNote2 = Instantiate(Note2, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -274,23 +209,6 @@ public class Conductor : MonoBehaviour
                     GameObject newNote3g = Instantiate(Note3g, GameObject.FindGameObjectWithTag("Canvas").transform);
                     currentNoteCheck[currentNoteCheck.Count - 1].isGlide = true;
                 }
-                else if (notes[nextIndex].isGlideHold == true)
-                {
-                    GameObject newNote3gHold = Instantiate(Note3gHold, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isGlideHold = true;
-                }
-                else if (notes[nextIndex].isDown == true)
-                {
-                    GameObject NewNote3down = Instantiate(Note3down, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isDown = true;
-                }
-                /*
-                else if (notes[nextIndex].isUp == true)
-                {
-                    GameObject NewNote3up = Instantiate(Note3up, GameObject.FindGameObjectWithTag("Canvas").transform);
-                    currentNoteCheck[currentNoteCheck.Count - 1].isUp = true;
-                }
-                */
                 else
                 {
                     GameObject newNote3 = Instantiate(Note3, GameObject.FindGameObjectWithTag("Canvas").transform);
@@ -364,23 +282,6 @@ public class Conductor : MonoBehaviour
 	            		newNote.notes[i - 1] = true;
 	            		newNote.isGlide = true;
 	            	}
-                    if (data[i] == "d")
-                    {
-                        newNote.notes[i - 1] = true;
-                        newNote.isDown = true;
-                    }
-                    /*
-                    if (data[i] == "u")
-                    {
-                        newNote.notes[i - 1] = true;
-                        newNote.isUp = true;
-                    }
-                    */
-                    if (data[i] == "h")
-                    {
-                        newNote.notes[i - 1] = true;
-                        newNote.isGlideHold = true;
-                    }
 	            }
 	            notes.Add(newNote);
 			}
@@ -400,7 +301,7 @@ public class Conductor : MonoBehaviour
 	public void note0Pressed()
     {
     	float pressTime = songPositionInBeats;
-    		// + lagSetting;
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[0] == true
@@ -445,7 +346,7 @@ public class Conductor : MonoBehaviour
     public void note1Pressed()
     {
 		float pressTime = songPositionInBeats;
-    		// + lagSetting;
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[1] == true
@@ -490,7 +391,7 @@ public class Conductor : MonoBehaviour
     public void note2Pressed()
     {
     	float pressTime = songPositionInBeats;
-    		// + lagSetting;
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[2] == true
@@ -535,7 +436,7 @@ public class Conductor : MonoBehaviour
     public void note3Pressed()
     {
     	float pressTime = songPositionInBeats;
-    		// + lagSetting;
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].notes[3] == true
@@ -580,7 +481,7 @@ public class Conductor : MonoBehaviour
     public void noteBarPressed()
     {
     	float pressTime = songPositionInBeats;
-    		// + lagSetting;
+
     	if (pressTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
     		&& pressTime < (currentNoteCheck[0].pos + (judgmentValue / 10f))
     		&& currentNoteCheck[0].isBar == true)
@@ -614,162 +515,6 @@ public class Conductor : MonoBehaviour
     	}
     	checkCombo();
     }
-
-    /*
-
-    public void note0Released()
-    {
-        float releaseTime = songPositionInBeats;
-
-        if (currentNoteCheck[0].notes[0] == true && currentNoteCheck[0].isUp == true)
-        {
-            if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue / 10f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (15 * maniaMultiplier);
-                //text: MANIAC
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - judgmentValue)
-                && releaseTime < (currentNoteCheck[0].pos + judgmentValue))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (10 * maniaMultiplier);
-                //text: GREAT
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (5 * maniaMultiplier);
-                //text: OK
-            }
-        }
-        if (releaseTime > lastRelease)
-        {
-            lastRelease = releaseTime;
-        }
-        checkCombo();
-    }
-
-    public void note1Released()
-    {
-        float releaseTime = songPositionInBeats;
-  
-        if (currentNoteCheck[0].notes[1] == true && currentNoteCheck[0].isUp == true)
-        {
-            if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue / 10f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (15 * maniaMultiplier);
-                //text: MANIAC
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - judgmentValue)
-                && releaseTime < (currentNoteCheck[0].pos + judgmentValue))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (10 * maniaMultiplier);
-                //text: GREAT
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (5 * maniaMultiplier);
-                //text: OK
-            }
-        }
-        if (releaseTime > lastRelease)
-        {
-            lastRelease = releaseTime;
-        }
-        checkCombo();
-    }
-
-    public void note2Released()
-    {
-        float releaseTime = songPositionInBeats;
-            
-        if (currentNoteCheck[0].notes[2] == true && currentNoteCheck[0].isUp == true)
-        {
-            if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue / 10f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (15 * maniaMultiplier);
-                //text: MANIAC
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - judgmentValue)
-                && releaseTime < (currentNoteCheck[0].pos + judgmentValue))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (10 * maniaMultiplier);
-                //text: GREAT
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (5 * maniaMultiplier);
-                //text: OK
-            }
-        }
-        if (releaseTime > lastRelease)
-        {
-            lastRelease = releaseTime;
-        }
-        checkCombo();
-    }
-
-    public void note3Released()
-    {
-        float releaseTime = songPositionInBeats;
-
-        if (currentNoteCheck[0].notes[3] == true && currentNoteCheck[0].isUp == true)
-        {
-            if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue / 10f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue / 10f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (15 * maniaMultiplier);
-                //text: MANIAC
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - judgmentValue)
-                && releaseTime < (currentNoteCheck[0].pos + judgmentValue))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (10 * maniaMultiplier);
-                //text: GREAT
-            }
-            else if (releaseTime > (currentNoteCheck[0].pos - (judgmentValue * 1.5f))
-                && releaseTime < (currentNoteCheck[0].pos + (judgmentValue * 1.5f)))
-            {
-                numNotesHit++;
-                lastNoteHit = true;
-                score += (5 * maniaMultiplier);
-                //text: OK
-            }
-        }
-        if (releaseTime > lastRelease)
-        {
-            lastRelease = releaseTime;
-        }
-        checkCombo();
-    }
-
-    */
 
     public void checkCombo()
     {
